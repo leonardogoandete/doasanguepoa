@@ -1,0 +1,61 @@
+.login{
+    
+    width: 400px;
+    height: 450px;
+    margin: auto;
+    overflow: auto;
+    background: rgba(0,212,255,1);
+    background: linear-gradient(90deg, #ffffff8a 0%, rgb(19, 193, 228) 100%);
+    margin-top: 100px;
+    border-radius: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    
+}
+
+.user, .password{
+    color: white;
+    text-align: center;
+    display: flex;
+    width: 300px;
+    height: 50px;
+    
+    margin: auto;
+    border-bottom: 2px solid;
+}
+
+.user{
+    margin-top: 50px;
+}
+
+.user label{
+    align-self: flex-end;
+}
+
+.password{
+    margin-top: 30px;
+}
+
+.password label{
+    align-self: flex-end;
+}
+
+
+.entrar{
+    text-align: center;
+    line-height: 45px;
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    margin: auto;
+    border-radius: 30px;
+    margin-top: 50px;
+}
+
+
+
+
+
