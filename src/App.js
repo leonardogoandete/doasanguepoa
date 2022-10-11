@@ -1,32 +1,13 @@
-import React from 'react';
+import React from "react";
+import RoutesApp from "./routes";
+import { AuthProvider } from "./contexts/auth";
+import GlobalStyle from "./styles/global";
 
-import './App.css';
-
-const App = () => {
-  
-  const message = "Login";
-  
-  return <div className = "login">
-         <h1>{message}</h1>
-         <form>
-          <div className = "user">
-          <label id = "user">
-            Nome de Usuário
-          </label>
-          </div>
-          <div className = "password">
-          <label id ="password">
-            Senha
-          </label>
-          </div>
-          <div className = "entrar">
-          <label id ="entrar">
-            Login
-          </label>
-          </div>
-         </form>
-         
-  </div>;
-};
+const App = () => (
+  <AuthProvider>
+    <RoutesApp />
+    <GlobalStyle />
+  </AuthProvider>
+);
 
 export default App;
