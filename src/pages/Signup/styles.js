@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  background: linear-gradient(90deg, #0056F0 0%, rgba(0,212,255,1) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,13 +21,13 @@ export const Content = styled.div`
   background-color: white;
   max-width: 350px;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 15px;
 `;
 
 export const Label = styled.label`
   font-size: 18px;
   font-weight: 600;
-  color: #676767;
+  color: black;
 `;
 
 export const LabelSignin = styled.label`
