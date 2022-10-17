@@ -19,16 +19,16 @@ const Register = () => {
     }
 
     const validations = yup.object().shape({
-        nome: yup.string().min(3).required(),
-        sobrenome: yup.string().min(3).required(),
-        cpf: yup.string().min(11).required(),
-        email: yup.string().email().required(),
-        senha: yup.string().min(8).required()
+        nome: yup.string().min(3).required('Informe o nome'),
+        sobrenome: yup.string().min(3).required('Informe o sobrenome'),
+        cpf: yup.string().min(11).required('Informe o CPF'),
+        email: yup.string().email().required("Informe o email"),
+        senha: yup.string().min(8).required('Informe a senha'),
     })
     return (
         <>
-            <h1>Register</h1>
-            <p>Fill the fields to create a new user</p>
+            <h1>Cadastro</h1>
+            <p>Preencha os dados abaixo para cadastro!</p>
             <Formik
                 initialValues={{}}
                 onSubmit={handleSubmit}
