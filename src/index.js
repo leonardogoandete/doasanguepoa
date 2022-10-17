@@ -1,6 +1,9 @@
-import { createRoot } from "react-dom/client";
-import App from "./App";
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-const root = createRoot(document.querySelector("#root"));
+import App from './containers/App'
 
-root.render(<App />);
+import 'normalize.css'
+import './index.css'
+
+ReactDOM.render(<App />, document.getElementById('root'))
