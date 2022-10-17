@@ -36,6 +36,7 @@ const Login = () => {
                 <Form className="Login">
                     <div className="Login-Group">
                         <Field
+                            placeholder="Digite seu CPF"
                             name="cpf"
                             className="Login-Field"
                         />
@@ -47,6 +48,8 @@ const Login = () => {
                     </div>
                     <div className="Login-Group">
                         <Field
+                            type="password"
+                            placeholder="Digite sua senha"
                             name="senha"
                             className="Login-Field"
                         />

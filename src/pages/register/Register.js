@@ -36,7 +36,9 @@ const Register = () => {
             >
                 <Form className="Login">
                     <div className="Login-Group">
+
                         <Field
+                            placeholder="Digite seu nome"
                             name="nome"
                             className="Login-Field"
                         />
@@ -48,6 +50,7 @@ const Register = () => {
                     </div>
                     <div className="Login-Group">
                         <Field
+                            placeholder="Digite seu sobrenome"
                             name="sobrenome"
                             className="Login-Field"
                         />
@@ -59,6 +62,7 @@ const Register = () => {
                     </div>
                     <div className="Login-Group">
                         <Field
+                            placeholder="Digite seu CPF"
                             name="cpf"
                             className="Login-Field"
                         />
@@ -70,6 +74,7 @@ const Register = () => {
                     </div>
                     <div className="Login-Group">
                         <Field
+                            placeholder="Digite seu e-mail"
                             name="email"
                             className="Login-Field"
                         />
@@ -81,6 +86,8 @@ const Register = () => {
                     </div>
                     <div className="Login-Group">
                         <Field
+                            placeholder="Digite sua senha"
+                            type="password"
                             name="senha"
                             className="Login-Field"
                         />
