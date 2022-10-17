@@ -9,11 +9,11 @@ import '../login/Login.css'
 
 const Register = () => {
     const handleSubmit = values => {
-        axios.post('http://doasanguepoa-bff.herokuapp.com/usuarios', values)
+        axios.post('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios', values)
             .then(resp => {
                 const { data } = resp
                 if (data) {
-                    history.push('/login')
+                    history.push('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios/login')
                 }
             })
     }
