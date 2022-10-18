@@ -23,7 +23,7 @@ const Register = () => {
         sobrenome: yup.string().min(3).required('Informe o sobrenome'),
         cpf: yup.string().min(11).required('Informe o CPF'),
         email: yup.string().email().required("Informe o email"),
-        senha: yup.string().min(8).required('Informe a senha'),
+        senha: yup.string().min(8,'Digite no minimo 8 caracteres').required('Informe a senha'),
     })
     return (
         <>
