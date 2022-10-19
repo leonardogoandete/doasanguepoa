@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-
-const baseURL = "https://doasanguepoa-bff.herokuapp.com/v1/api/postagens/"
+axios.defaults.baseURL = 'https://doasanguepoa-bff.herokuapp.com/v1/api';
 
 const Feed = () => {
     
@@ -10,7 +9,7 @@ const Feed = () => {
     const [error, setError] = React.useState(null);
 
     React.useEffect(() => {
-      axios.get(baseURL).then((response) => {
+      axios.get('/postagens').then((response) => {
         setPost(response.data);
       })
       .catch(error => {
@@ -20,7 +19,6 @@ const Feed = () => {
   
     if (!post) return null;
 
-console.log(post);
     return (
       <div>
         <h2 className="post-title">{post.idInstituicao}</h2>

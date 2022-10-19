@@ -4,13 +4,13 @@ import { ErrorMessage, Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import { history } from '../../history'
-
 import './Login.css'
+
+axios.defaults.baseURL='https://doasanguepoa-bff.herokuapp.com/v1/api'
 
 const Login = () => {
     const handleSubmit = values => {
-        axios.post('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios/login', values)
-        //axios.post('http://localhost:3333/usuario/login', values)
+        axios.post('/usuarios/login', values)
             .then(resp => {
                 const { data } = resp
                 if (data) {
