@@ -1,11 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 
-const baseURL = "https://doasanguepoa-bff.herokuapp.com/v1/api/postagens/1"
+const baseURL = "https://doasanguepoa-bff.herokuapp.com/v1/api/postagens/"
 
 const Feed = () => {
     
     const [post, setPost] = React.useState(null);
+    // eslint-disable-next-line
     const [error, setError] = React.useState(null);
 
     React.useEffect(() => {
@@ -19,13 +20,20 @@ const Feed = () => {
   
     if (!post) return null;
 
+console.log(post);
     return (
       <div>
-        <h1>{post.Instituicao}</h1>
-        <p>{post.mensagem}</p>
+        <h2 className="post-title">{post.idInstituicao}</h2>
+        {post.map((post) => {
+           return (
+              <div className="post-card" key={post.id}>
+                 <h3>Instituicao: {post.idInstituicao}</h3>
+                 <p className="post-body">{post.mensagem}</p>
+              </div>
+           );
+        })}
       </div>
     );
-
 }
 
-export default Feed
+export default Feed;
