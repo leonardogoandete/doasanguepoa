@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 
-const baseURL = "https://doasanguepoa-bff.herokuapp.com/v1/api/postagens/"
+//const baseURL = "https://doasanguepoa-bff.herokuapp.com/v1/api/postagens/"
+const baseURL = "http://localhost:3333/v1/api/postagens/"
 
 const Feed = () => {
     
@@ -27,7 +28,7 @@ console.log(post);
         {post.map((post) => {
            return (
               <div className="post-card" key={post.id}>
-                 <h3>Instituicao: {post.idInstituicao}</h3>
+                 <h3>{post.instituico.nome}</h3>
                  <p className="post-body">{post.mensagem}</p>
               </div>
            );
