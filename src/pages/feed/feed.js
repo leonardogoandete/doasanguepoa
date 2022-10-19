@@ -1,8 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-//const baseURL = "https://doasanguepoa-bff.herokuapp.com/v1/api/postagens/"
-const baseURL = "http://localhost:3333/v1/api/postagens/"
+const baseURL = "https://doasanguepoa-bff.herokuapp.com/v1/api/postagens/"
 
 const Feed = () => {
     
