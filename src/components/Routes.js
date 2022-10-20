@@ -3,7 +3,6 @@ import React from 'react'
 import { Router, Switch, Route } from 'react-router'
 
 import Login from '../pages/login'
-import Feed from '../pages/feed/feed'
 import Register from '../pages/register'
 import Home from '../pages/home'
 import NotFound from './NotFound'
@@ -16,7 +15,6 @@ const Routes = () => (
         <Switch>
             <Route component={Login} exact path="/login"/>
             <Route component={Register} exact path="/cadastro/usuario"/>
-            <Route component={Feed} exact path="/feed"/>
             <PrivateRoute component={Home} exact path="/"/>
             <PrivateRoute component={NotFound}/>
         </Switch>

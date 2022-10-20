@@ -1,11 +1,11 @@
 import React from 'react'
-
+import { Link, useNavigate } from "react-router-dom";
 import { ErrorMessage, Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import { history } from '../../history'
 
-import '../login/Login.css'
+import './Register.css'
 
 const Register = () => {
     const handleSubmit = values => {
@@ -27,7 +27,10 @@ const Register = () => {
     })
     return (
         <>
+            <div className = "h1">
             <h1>Cadastro</h1>
+            </div>
+            <div className = "registrar">
             <p>Preencha os dados abaixo para cadastro!</p>
             <Formik
                 initialValues={{}}
@@ -40,48 +43,28 @@ const Register = () => {
                         <Field
                             placeholder="Digite seu nome"
                             name="nome"
-                            className="Login-Field"
-                        />
-                        <ErrorMessage
-                            component="span"
-                            name="nome"
-                            className="Login-Error"
+                            className="campo"
                         />
                     </div>
                     <div className="Login-Group">
                         <Field
                             placeholder="Digite seu sobrenome"
                             name="sobrenome"
-                            className="Login-Field"
-                        />
-                        <ErrorMessage
-                            component="span"
-                            name="sobrenome"
-                            className="Login-Error"
+                            className="campo"
                         />
                     </div>
                     <div className="Login-Group">
                         <Field
-                            placeholder="Digite seu CPF"
+                            placeholder="Digite seu CPF/CNPJ"
                             name="cpf"
-                            className="Login-Field"
-                        />
-                        <ErrorMessage
-                            component="span"
-                            name="cpf"
-                            className="Login-Error"
+                            className="campo"
                         />
                     </div>
                     <div className="Login-Group">
                         <Field
                             placeholder="Digite seu e-mail"
                             name="email"
-                            className="Login-Field"
-                        />
-                        <ErrorMessage
-                            component="span"
-                            name="email"
-                            className="Login-Error"
+                            className="campo"
                         />
                     </div>
                     <div className="Login-Group">
@@ -89,17 +72,16 @@ const Register = () => {
                             placeholder="Digite sua senha"
                             type="password"
                             name="senha"
-                            className="Login-Field"
-                        />
-                        <ErrorMessage
-                            component="span"
-                            name="senha"
-                            className="Login-Error"
+                            className="campo"
                         />
                     </div>
-                    <button className="Login-Btn" type="submit">Register</button>
+                    <button className="Login-Btn" type="submit">Cadastrar</button>
+                    <div className = "register"> Já tem conta?
+                    <Link to="/login">&nbsp;Login</Link>
+                    </div>
                 </Form>
             </Formik>
+            </div>
         </>
     )
 }

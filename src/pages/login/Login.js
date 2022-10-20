@@ -1,16 +1,19 @@
 import React from 'react'
+import { Link, useNavigate } from "react-router-dom";
+
+import Routes from '../../components/Routes.js';
 
 import { ErrorMessage, Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import { history } from '../../history'
-import './Login.css'
 
-axios.defaults.baseURL='https://doasanguepoa-bff.herokuapp.com/v1/api'
+import './Login.css'
 
 const Login = () => {
     const handleSubmit = values => {
-        axios.post('/usuarios/login', values)
+        axios.post('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios/login', values)
+        //axios.post('http://localhost:3333/usuario/login', values)
             .then(resp => {
                 const { data } = resp
                 if (data) {
@@ -25,9 +28,14 @@ const Login = () => {
         senha: yup.string().min(2).required()
     })
     return (
-        <>
-            <h1>Login</h1>
-            <p>Fill the fields to continue</p>
+        <>  
+
+            <div className = "titulo">Login</div>
+            <div className = "Container">
+             
+            
+            <div className = "texto">Preencha os campos para continuar!</div>
+
             <Formik
                 initialValues={{}}
                 onSubmit={handleSubmit}
@@ -36,14 +44,9 @@ const Login = () => {
                 <Form className="Login">
                     <div className="Login-Group">
                         <Field
-                            placeholder="Digite seu CPF"
+                            placeholder="Digite seu CPF/CNPJ"
                             name="cpf"
                             className="Login-Field"
-                        />
-                        <ErrorMessage
-                            component="span"
-                            name="cpf"
-                            className="Login-Error"
                         />
                     </div>
                     <div className="Login-Group">
@@ -53,15 +56,14 @@ const Login = () => {
                             name="senha"
                             className="Login-Field"
                         />
-                        <ErrorMessage
-                            component="span"
-                            name="senha"
-                            className="Login-Error"
-                        />
                     </div>
-                    <button className="Login-Btn" type="submit">Login</button>
+                    <button className="Login-Button" type="submit">Login</button>
+                    <div className = "register"> Não tem conta?
+                    <Link to="/cadastro/usuario">&nbsp;Registre-se</Link>
+                    </div>
                 </Form>
             </Formik>
+            </div>
         </>
     )
 }
