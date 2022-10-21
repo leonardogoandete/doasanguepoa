@@ -41,15 +41,15 @@ const Register = () => {
                     <div className="Login-Group">
 
                         <Field
-                            placeholder="Digite seu nome"
+                            placeholder="Digite seu Nome Completo"
                             name="nome"
                             className="campo"
                         />
                     </div>
                     <div className="Login-Group">
                         <Field
-                            placeholder="Digite seu sobrenome"
-                            name="sobrenome"
+                            placeholder="Digite seu endereço"
+                            name="endereco"
                             className="campo"
                         />
                     </div>
@@ -75,7 +75,7 @@ const Register = () => {
                             className="campo"
                         />
                     </div>
-                    <button className="Login-Btn" type="submit">Cadastrar</button>
+                    <button className="Login-Btn" type="submit" onClick={handleSubmit}>Cadastrar</button>
                     <div className = "register"> Já tem conta?
                     <Link to="/login">&nbsp;Login</Link>
                     </div>

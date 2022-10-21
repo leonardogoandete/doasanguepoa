@@ -13,6 +13,7 @@ import './Login.css'
 const Login = () => {
     const handleSubmit = values => {
         axios.post('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios/login', values)
+        //axios.post('http://localhost:3333/usuario/login', values)
             .then(resp => {
                 const { data } = resp
                 if (data) {
@@ -56,7 +57,7 @@ const Login = () => {
                             className="Login-Field"
                         />
                     </div>
-                    <button className="Login-Button" type="submit">Login</button>
+                    <button className="Login-Button" type="submit" onClick={handleSubmit}>Login</button>
                     <div className = "register"> Não tem conta?
                     <Link to="/cadastro/usuario">&nbsp;Registre-se</Link>
                     </div>
