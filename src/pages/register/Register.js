@@ -10,12 +10,12 @@ import './Register.css'
 const Register = () => {
     const handleSubmit = values => {
         axios.post('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios', values)
-            .then(resp => {
-                const { data } = resp
-                if (data) {
-                    history.push('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios/login')
-                }
-            })
+            //.then(resp => {
+            //    const { data } = resp
+            //    if (data) {
+            //        history.push('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios/login')
+            //    }
+           // })
     }
 
     const validations = yup.object().shape({
