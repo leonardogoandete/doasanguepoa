@@ -15,7 +15,7 @@ const Login = () => {
             .then(resp => {
                 const { data } = resp
                 if (data) {
-                    localStorage.setItem('u', {"token":data.token})
+                    localStorage.setItem('u', data.token)
                     history.push('/')
                 }
             })
