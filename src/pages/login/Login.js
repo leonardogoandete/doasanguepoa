@@ -3,15 +3,15 @@ import { Link} from "react-router-dom";
 
 import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
-import axios from 'axios'
+import { Api } from '../../config/Api';
 import { history } from '../../history'
 
 import './Login.css'
 
 const Login = () => {
     const handleSubmit = values => {
-        axios.post('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios/login', values)
-        //axios.post('http://localhost:3333/usuario/login', values)
+        Api.post('/usuarios/login', values)
+        //Api.post('/usuario/login', values)
             .then(resp => {
                 const { data } = resp
                 if (data) {

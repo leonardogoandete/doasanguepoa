@@ -1,6 +1,5 @@
 import React from 'react'
-import axios from 'axios'
-axios.defaults.baseURL = 'https://doasanguepoa-bff.herokuapp.com/v1/api';
+import { Api } from '../../config/Api';
 
 const Feed = () => {
     
@@ -9,7 +8,7 @@ const Feed = () => {
     const [error, setError] = React.useState(null);
 
     React.useEffect(() => {
-      axios.get('/postagens').then((response) => {
+      Api.get('/postagens').then((response) => {
         setPost(response.data);
       })
       .catch(error => {

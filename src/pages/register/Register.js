@@ -2,14 +2,14 @@ import React from 'react'
 import { Link} from "react-router-dom";
 import {Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
-import axios from 'axios'
+import { Api } from '../../config/Api';
 import { history } from '../../history'
 
 import './Register.css'
 
 const Register = () => {
     const handleSubmit = values => {
-        axios.post('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios', values)
+        Api.post('/usuarios', values)
             .then(resp => {
                 const { data } = resp
                 if (data) {

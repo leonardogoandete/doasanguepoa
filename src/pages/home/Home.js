@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import { Api } from '../../config/Api';
 
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
         const [error, setError] = React.useState(null);
     
         React.useEffect(() => {
-          axios.get('https://doasanguepoa-bff.herokuapp.com/v1/api/postagens').then((response) => {
+          Api.get('/postagens').then((response) => {
             setPost(response.data);
           })
           .catch(error => {
