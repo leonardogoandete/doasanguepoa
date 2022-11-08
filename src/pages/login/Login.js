@@ -16,7 +16,7 @@ const Login = () => {
                 const { data } = resp
                 if (data) {
                     localStorage.setItem('u', {"token":data.token})
-                    history.push('/home/Home.js')
+                    history.push('/')
                 }
             })
     }
