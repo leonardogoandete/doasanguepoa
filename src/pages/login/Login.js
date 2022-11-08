@@ -16,11 +16,7 @@ const Login = () => {
                 const { data } = resp
                 if (data) {
                     localStorage.setItem('u', {"token":data.token})
-<<<<<<< HEAD
                     history.push('/home/Home.js')
-=======
-                    history.push('/')
->>>>>>> parent of e8c9ffb... Ajuste no armazenamento local, token
                 }
             })
     }
