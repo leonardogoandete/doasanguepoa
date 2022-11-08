@@ -2,14 +2,14 @@ import React from 'react'
 import { Link} from "react-router-dom";
 import {Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
-import { Api } from '../../config/Api';
+import axios from 'axios'
 import { history } from '../../history'
 
 import './Register.css'
 
 const Register = () => {
     const handleSubmit = values => {
-        Api.post('/usuarios', values)
+        axios.post('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios', values)
             .then(resp => {
                 const { data } = resp
                 if (data) {
@@ -77,7 +77,7 @@ const Register = () => {
                     </div>
                     <button className="Login-Btn" type="submit" onClick={handleSubmit}>Cadastrar</button>
                     <div className = "register"> Já tem conta?
-                    <Link to="/login">&nbsp;Login</Link>
+                    <Link to="/">&nbsp;Login</Link>
                     </div>
                 </Form>
             </Formik>

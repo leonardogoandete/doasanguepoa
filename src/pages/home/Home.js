@@ -1,15 +1,17 @@
 import React from 'react'
-import { Api } from '../../config/Api';
+import axios from 'axios'
+import Button from "../../components/Button";
 
+import './Home.css'
 
 const Home = () => {
-        
+  
         const [post, setPost] = React.useState(null);
         // eslint-disable-next-line
         const [error, setError] = React.useState(null);
     
         React.useEffect(() => {
-          Api.get('/postagens').then((response) => {
+          axios.get('https://doasanguepoa-bff.herokuapp.com/v1/api/postagens').then((response) => {
             setPost(response.data);
           })
           .catch(error => {
@@ -20,7 +22,9 @@ const Home = () => {
         if (!post) return null;
     
         return (
+          
           <div>
+            <Button Text="Sair" onClick=""> </Button>
             <h2 className="post-title">{post.idInstituicao}</h2>
             {post.map((post) => {
                return (
@@ -30,6 +34,7 @@ const Home = () => {
                   </div>
                );
             })}
+            
           </div>
         );
 
