@@ -10,12 +10,7 @@ import './Login.css'
 
 const Login = () => {
     const handleSubmit = values => {
-<<<<<<< HEAD
         Api.post('/usuarios/login', values)
-=======
-        axios.post('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios/login', values)
-        //axios.post('http://localhost:3333/usuario/login', values)
->>>>>>> af03e0c842a18378dbc10b38f44973ad80ac8e45
             .then(resp => {
                 const { data } = resp
                 if (data) {
