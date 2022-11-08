@@ -11,7 +11,6 @@ import './Login.css'
 const Login = () => {
     const handleSubmit = values => {
         Api.post('/usuarios/login', values)
-        //Api.post('/usuario/login', values)
             .then(resp => {
                 const { data } = resp
                 if (data) {
