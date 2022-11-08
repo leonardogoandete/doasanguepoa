@@ -3,7 +3,7 @@ import { Link} from "react-router-dom";
 
 import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
-import axios from 'axios'
+import { Api } from '../../config/Api';
 import { history } from '../../history'
 
 import './Login.css'
@@ -11,10 +11,11 @@ import './Login.css'
 const Login = () => {
     const handleSubmit = values => {
         Api.post('/usuarios/login', values)
+        //Api.post('/usuario/login', values)
             .then(resp => {
                 const { data } = resp
                 if (data) {
-                    localStorage.setItem('u', {"token":data.token})
+                    localStorage.setItem('u', data.token)
                     history.push('/')
                 }
             })
