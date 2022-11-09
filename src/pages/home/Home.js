@@ -1,6 +1,9 @@
 import React from 'react'
 import { Api } from '../../config/Api';
+import Button from "../../components/Button";
+import Logout from '../../components/Lougout/Logout';
 
+import './Home.css'
 
 const Home = () => {
         
@@ -21,6 +24,9 @@ const Home = () => {
     
         return (
           <div>
+            <Button Text="Sair" onClick={() => Logout()}/>
+            <div className = "format">
+            <div className = "posts">
             <h2 className="post-title">{post.idInstituicao}</h2>
             {post.map((post) => {
                return (
@@ -30,6 +36,8 @@ const Home = () => {
                   </div>
                );
             })}
+            </div>
+            </div>
           </div>
         );
 

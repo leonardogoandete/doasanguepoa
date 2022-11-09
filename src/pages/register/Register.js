@@ -77,7 +77,7 @@ const Register = () => {
                     </div>
                     <button className="Login-Btn" type="submit" onClick={handleSubmit}>Cadastrar</button>
                     <div className = "register"> Já tem conta?
-                    <Link to="/login">&nbsp;Login</Link>
+                    <Link to="/">&nbsp;Login</Link>
                     </div>
                 </Form>
             </Formik>
