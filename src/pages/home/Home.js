@@ -26,12 +26,16 @@ const Home = () => {
       
         if (!post) return null;
 
-        const handleSubmit = publicacao =>{
+        const handleSubmit = publicacao => {
           const token = localStorage.getItem('u');
           const decoded = jwt_decode(token);
-          Api.post('/postagens', 
-          {"mensagem": "mensagem",
-          "idInstituicao": decoded['id']}, 
+
+          const data = {
+            "mensagem": publicacao,
+            "idInstituicao": decoded['id']
+          }
+          console.log(data)
+          Api.post('/postagens', data, 
           {
             headers: {
               'x-access-token': token
