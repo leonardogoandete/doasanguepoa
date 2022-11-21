@@ -4,6 +4,8 @@ import Button from "../../components/Button";
 import Logout from '../../components/Lougout/Logout';
 import { HiUser } from 'react-icons/hi';
 import { IconContext } from "react-icons";
+import { Formik, Form, Field } from 'formik'
+import jwt_decode from "jwt-decode";
 
 import './Home.css'
 
@@ -23,14 +25,40 @@ const Home = () => {
         }, []);
       
         if (!post) return null;
+
+        const handleSubmit = publicacao =>{
+          const token = localStorage.getItem('u');
+          const decoded = jwt_decode(token);
+          Api.post('/postagens', 
+          {"mensagem": "mensagem",
+          "idInstituicao": decoded['id']}, 
+          {
+            headers: {
+              'x-access-token': token
+            }
+          })
+        }
     
         return (
           <div>
             <Button Text="Sair" onClick={() => Logout()}/>
             <div className = "publicacao">
-            <textarea className = "publish" name="publish" placeholder="Publique seu pedido...">
-            </textarea>
-            <button className = "publicar" Text="Publicar" id="publicar"  onClick={() => Logout()}>
+            <Formik
+                initialValues={{}}
+                onSubmit={handleSubmit}
+                validationSchema={{}}
+            >
+            <Form className="Publicacao">
+                    <div className="Publish-Group">
+                        <Field
+                            placeholder="Faça seu pedido..."
+                            name="mensagem"
+                            className="publish-Field"
+                        />
+                    </div>
+                    </Form>
+            </Formik>
+            <button className = "publicar" Text="Publicar" id="publicar"  onClick={handleSubmit}>
              Publicar</button>
             </div>
             

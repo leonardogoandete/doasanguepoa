@@ -25,6 +25,7 @@ const Login = () => {
         cpf: yup.number().min(11).required(),
         senha: yup.string().min(2).required()
     })
+
     return (
         <>  
 
