@@ -43,7 +43,7 @@ const LoginIns = () => {
                     <div className="Login-Group">
                         <Field
                             placeholder="Digite seu CNPJ"
-                            name="cpf"
+                            name="cnpj"
                             className="Login-Field"
                         />
                     </div>
