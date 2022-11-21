@@ -56,9 +56,6 @@ const LoginIns = () => {
                         />
                     </div>
                     <button className="Login-Button" type="submit" onClick={handleSubmit}>Login</button>
-                    <div className = "register"> Não tem conta?
-                    <Link to="/cadastro/usuario">&nbsp;Registre-se</Link>
-                    </div>
                     <div className = "l_instituicao"> É Usuário?
                     <Link to="/">&nbsp;Login</Link>
                     </div>
