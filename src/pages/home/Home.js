@@ -27,6 +27,13 @@ const Home = () => {
         return (
           <div>
             <Button Text="Sair" onClick={() => Logout()}/>
+            <div className = "publicacao">
+            <textarea className = "publish" name="publish" placeholder="Publique seu pedido...">
+            </textarea>
+            <button className = "publicar" Text="Publicar" id="publicar"  onClick={() => Logout()}>
+             Publicar</button>
+            </div>
+            
             <div className = "format">
             <div className = "posts">
             <h2 className="post-title">{post.idInstituicao}</h2>
@@ -42,7 +49,10 @@ const Home = () => {
                      <h3>
                       {post.instituico.nome}</h3>
                      <p className="post-body">{post.mensagem}</p>
-                  </div>
+                     <button className = "compartilhar" onClick={() => Logout()}>Compartilhar</button>
+                     <button className = "agendar" onClick={() => Logout()}>Agendar</button>
+                     <hr></hr>
+                  </div>        
                );
             })}
             </div>

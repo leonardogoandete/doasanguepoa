@@ -5,6 +5,7 @@
     background:white;
     width: 100%;
     border: 0.5px solid;
+    margin-bottom: 130px;
 }
 
 h3{ 
@@ -27,9 +28,9 @@ h4{
     border-radius: 10px;
     width: 640px;
     margin: auto;
-    margin-top: 100px;
     background-color: white;
     padding-bottom: 20px;
+    margin-bottom: 20px;
     box-shadow: 1px 1px 1px 1px rgb(133, 133, 133);
 }
 
@@ -48,4 +49,79 @@ h4{
     margin-right: 30px;
     text-align: justify;
     
+}
+
+.publicacao{
+    width: 580px;
+    margin: auto;
+    height: 200px;
+    margin-top: 100px;
+}
+
+.publish{
+    width: 580px;
+    height: 100px;
+    box-sizing: border-box;
+    display: flex;
+    margin: auto;
+    resize:none;
+    border-radius: 10px;
+    border: solid 0.5px;
+    border-color: gray;
+    background: transparent;
+    outline: none;
+    box-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
+    padding: 10px;
+  }
+
+::placeholder{
+    color: black;
+}
+
+.publicar{
+  padding: 16px 20px;
+  border-radius: 30px;
+  border: none;
+  width: 40%;
+  cursor: pointer;
+  background-color: white;
+  color: #046ee5;
+  font-weight: 600;
+  font-size: 16px;
+  max-width: 150px;
+  box-shadow: 1px 1px 1px 1px rgb(133, 133, 133);
+  float: right;
+  margin-top: 20px;
+}
+
+.agendar, .compartilhar{
+    float: right;
+    margin-top: 10px;
+    padding: 16px 20px;
+    border: none;
+    width: 40%;
+    cursor: pointer;
+    background-color: white;
+    color: #046ee5;
+    font-weight: 600;
+    font-size: 16px;
+    max-width: 150px;
+    box-shadow: 1px 1px 1px 1px rgb(133, 133, 133);
+    float: right;
+    margin-top: 20px;
+}
+
+.agendar{
+    border-radius: 30px 0px 0px 30px;
+    
+}
+
+.compartilhar{
+    border-radius:  0px 30px 30px 0px;
+}
+
+hr{
+  width: 580px;
+  float: right;
+  margin-top: 30px;
 }
