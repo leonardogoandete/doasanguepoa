@@ -6,11 +6,11 @@ import * as yup from 'yup'
 import { Api } from '../../config/Api';
 import { history } from '../../history'
 
-import './Login.css'
+import './LoginIns.css'
 
-const Login = () => {
+const LoginIns = () => {
     const handleSubmit = values => {
-        Api.post('/usuarios/login', values)
+        Api.post('/instituicoes/login', values)
         //Api.post('/usuario/login', values)
             .then(resp => {
                 const { data } = resp
@@ -22,7 +22,7 @@ const Login = () => {
     }
 
     const validations = yup.object().shape({
-        cpf: yup.number().min(11).required(),
+        cnpj: yup.number().min(14).required(),
         senha: yup.string().min(2).required()
     })
     return (
@@ -42,7 +42,7 @@ const Login = () => {
                 <Form className="Login">
                     <div className="Login-Group">
                         <Field
-                            placeholder="Digite seu CPF"
+                            placeholder="Digite seu CNPJ"
                             name="cpf"
                             className="Login-Field"
                         />
@@ -59,8 +59,8 @@ const Login = () => {
                     <div className = "register"> Não tem conta?
                     <Link to="/cadastro/usuario">&nbsp;Registre-se</Link>
                     </div>
-                    <div className = "l_instituicao"> É Instituição?
-                    <Link to="/instituicao">&nbsp;Login</Link>
+                    <div className = "l_instituicao"> É Usuário?
+                    <Link to="/">&nbsp;Login</Link>
                     </div>
                 </Form>
             </Formik>
@@ -69,4 +69,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default LoginIns
