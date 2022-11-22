@@ -9,6 +9,7 @@ import Home from '../pages/home'
 import NotFound from './NotFound'
 import PrivateRoute from './PrivateRoute'
 import Postagem from '../pages/feed/feed.js'
+import Agendamento from '../pages/agendamento/Agendamento'
 
 import {history} from '../history'
 
@@ -19,6 +20,7 @@ const Routes = () => (
             <Route component={LoginIns} exact path="/instituicao"/>
             <Route component={Register} exact path="/cadastro/usuario"/>
             <PrivateRoute component={Home} exact path="/home/Home.js"/>
+            <PrivateRoute component={Agendamento} exact path="/agendamento"/>
             <PrivateRoute component={NotFound}/>
             <Route component={Postagem} exact path="/postagens"/>
         </Switch>

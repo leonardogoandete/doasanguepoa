@@ -10,6 +10,7 @@ import { history } from '../../history'
 import { WhatsappIcon, WhatsappShareButton, TwitterIcon, TwitterShareButton } from "react-share";
 
 import './Home.css'
+import Agendamento from '../agendamento/Agendamento';
 
 const Home = () => {
         const shareUrl = "https://doasanguepoa.herokuapp.com/"
@@ -46,6 +47,7 @@ const Home = () => {
 
         return (
           <div>
+            <Button Text="Agendamento" onClick={() => Agendamento()}/>
             <Button Text="Sair" onClick={() => Logout()}/>
             <div className = "publicacao">
             <Formik
@@ -81,7 +83,7 @@ const Home = () => {
                      <h3>
                       {post.instituico.nome}</h3>
                      <p className="post-body">{post.mensagem}</p>
-                     <div class="compartilharSocial">
+                     <div className="compartilharSocial">
                      <WhatsappShareButton
                       url={shareUrl}
                       title={post.mensagem}
