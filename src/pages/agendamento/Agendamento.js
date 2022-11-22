@@ -34,7 +34,7 @@ const Agendamento = () => {
   });
   */
 
-  // função para pegar aas instituicoes
+  // função para pegar as instituicoes
   const [options, setOptions] = useState([""]);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Agendamento = () => {
       await Api.get("/instituicoes",).then((res) => {
           let result = res.data;
           result.map((instituicao) => {
-            return arr.push({value: instituicao.nome, label: instituicao.nome});
+            return arr.push({value: instituicao.id, label: instituicao.nome});
         });
         setOptions(arr)
       });
@@ -51,7 +51,10 @@ const Agendamento = () => {
     getData();
   }, []);
 
-
+  const handleChange = (escolha) => {
+    //aqui pego o ID da instituicao selecionada.
+    console.log(escolha['value']);
+  };
         return (
         <>
           <h1>Agendamento</h1>
@@ -61,12 +64,11 @@ const Agendamento = () => {
               className="input-cont"
               placeholder= "Escolha uma instituição"
               options={options}
+              onChange={handleChange}
             />
           </div>
-
         </>
         );
-
 }
 
 export default Agendamento
