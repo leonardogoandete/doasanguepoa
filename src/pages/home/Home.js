@@ -7,11 +7,12 @@ import { IconContext } from "react-icons";
 import { Formik, Form, Field } from 'formik'
 import jwt_decode from "jwt-decode";
 import { history } from '../../history'
+import { WhatsappIcon, WhatsappShareButton, TwitterIcon, TwitterShareButton } from "react-share";
 
 import './Home.css'
 
 const Home = () => {
-        
+        const shareUrl = "https://doasanguepoa.herokuapp.com/"
         const [post, setPost] = React.useState(null);
         // eslint-disable-next-line
         const [error, setError] = React.useState(null);
@@ -42,7 +43,7 @@ const Home = () => {
           })
           history.push('/home/Home.js')
         }
-    
+
         return (
           <div>
             <Button Text="Sair" onClick={() => Logout()}/>
@@ -80,6 +81,20 @@ const Home = () => {
                      <h3>
                       {post.instituico.nome}</h3>
                      <p className="post-body">{post.mensagem}</p>
+                     <WhatsappShareButton
+                      url={shareUrl}
+                      title={post.mensagem}
+                      className="Demo__some-network__share-button"
+                      >
+                        <WhatsappIcon size={32} round />
+                      </WhatsappShareButton>
+                      <TwitterShareButton
+                        url={shareUrl}
+                        title={post.mensagem}
+                        className="Demo__some-network__share-button"
+                      >
+                        <TwitterIcon size={32} round />
+                      </TwitterShareButton>
                      <button className = "compartilhar" onClick={() => Logout()}>Compartilhar</button>
                      <button className = "agendar" onClick={() => Logout()}>Agendar</button>
                      <hr></hr>

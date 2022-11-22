@@ -17,6 +17,7 @@ const Feed = () => {
     }, []);
   
     if (!post) return null;
+    
 
     return (
       <div>
