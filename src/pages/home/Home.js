@@ -6,6 +6,7 @@ import { HiUser } from 'react-icons/hi';
 import { IconContext } from "react-icons";
 import { Formik, Form, Field } from 'formik'
 import jwt_decode from "jwt-decode";
+import { history } from '../../history'
 
 import './Home.css'
 
@@ -26,21 +27,20 @@ const Home = () => {
       
         if (!post) return null;
 
-        const handleSubmit = publicacao => {
-          const token = localStorage.getItem('u');
-          const decoded = jwt_decode(token);
-
-          const data = {
-            "mensagem": publicacao,
-            "idInstituicao": decoded['id']
-          }
-          console.log(data)
-          Api.post('/postagens', data, 
+        const handleSubmit = mensagem =>{
+          const token = localStorage.getItem('u'); //pega do local storage o token
+          const decoded = jwt_decode(token); //captura o id através do jwt
+          const msg = JSON.stringify(mensagem.mensagem);//captura a string do objeto json
+          let finalString = msg.replace(/["]+/g, '');//retira as aspas da String
+          Api.post('/postagens',
+          {"mensagem": `${finalString}`, // recebe a msg mas através do final sem aspas
+          "idInstituicao": `${decoded['id']}`},
           {
             headers: {
-              'x-access-token': token
+              'x-access-token': `${token}`
             }
           })
+          history.push('/home/Home.js')
         }
     
         return (
@@ -52,7 +52,7 @@ const Home = () => {
                 onSubmit={handleSubmit}
                 validationSchema={{}}
             >
-            <Form className="Publicacao">
+            <Form className="mensagem">
                     <div className="Publish-Group">
                         <Field
                             placeholder="Faça seu pedido..."
@@ -60,12 +60,11 @@ const Home = () => {
                             className="publish-Field"
                         />
                     </div>
+                    <button className = "publicar" id="publicar" type="submit" onClick={handleSubmit}>
+                    Publicar</button>
                     </Form>
             </Formik>
-            <button className = "publicar" Text="Publicar" id="publicar"  onClick={handleSubmit}>
-             Publicar</button>
             </div>
-            
             <div className = "format">
             <div className = "posts">
             <h2 className="post-title">{post.idInstituicao}</h2>
