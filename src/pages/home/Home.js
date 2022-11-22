@@ -81,6 +81,7 @@ const Home = () => {
                      <h3>
                       {post.instituico.nome}</h3>
                      <p className="post-body">{post.mensagem}</p>
+                     <div class="compartilharSocial">
                      <WhatsappShareButton
                       url={shareUrl}
                       title={post.mensagem}
@@ -95,6 +96,7 @@ const Home = () => {
                       >
                         <TwitterIcon size={32} round />
                       </TwitterShareButton>
+                      </div>
                      <button className = "compartilhar" onClick={() => Logout()}>Compartilhar</button>
                      <button className = "agendar" onClick={() => Logout()}>Agendar</button>
                      <hr></hr>
