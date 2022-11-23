@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.10.15",
     "axios": "^0.19.0",
     "formik": "^1.5.7",
     "history": "^4.9.0",

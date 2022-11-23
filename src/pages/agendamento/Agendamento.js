@@ -1,47 +1,80 @@
-import * as React from "react";
-import axios from "axios";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import React, { useState, useEffect } from 'react'
+import { Api } from '../../config/Api';
+//import Button from "../../components/Button";
+//import Logout from '../../components/Lougout/Logout';
+import Select from 'react-select';
 
-export default function BasicSelect() {
-  const [age, setAge] = React.useState("");
-  const [options, setOptions] = React.useState([""]);
-  React.useEffect(() => {
+
+import './Agendamento.css'
+
+const Agendamento = () => {
+    /*    
+    var axios = require('axios');
+    var data = JSON.stringify({
+      "dia": "2023/12/22",
+      "idInstituicao": 1,
+      "hora": "13:00",
+      "idUsuario": 1
+    });
+    
+    var config = {
+      method: 'post',
+      url: 'http://doasanguepoa-bff.herokuapp.com/v1/api/agendamentos',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+  });
+  */
+
+  // função para pegar as instituicoes
+  const [options, setOptions] = useState([""]);
+
+  useEffect(() => {
     const getData = async () => {
       const arr = [];
-      await axios.get("https://doasanguepoa-bff.herkuapp.com/instituicoes")
-        .then((res) => {
+      await Api.get("/instituicoes",).then((res) => {
           let result = res.data;
           result.map((instituicao) => {
-            return arr.push({ value: instituicao.id, label: instituicao.nome });
-          });
-          setOptions(arr);
+            return arr.push({value: instituicao.id, label: instituicao.nome});
         });
+        setOptions(arr)
+      });
     };
     getData();
   }, []);
 
-  const handleChange = (event) => {
-    setAge(event["id"]);
+  const handleChange = (escolha) => {
+    //aqui pego o ID da instituicao selecionada.
+    console.log(escolha['value']);
+    console.log(value)
   };
-
-  return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={handleChange}
-        >
-          {<MenuItem value={options.id}>{options.nome}</MenuItem>}
-        </Select>
-      </FormControl>
-    </Box>
-  );
+        return (
+        <>
+          <h1>Agendamento</h1>
+          <div className='selectInstituicao'>
+            Escolha o local de doação:
+            <Select
+              className="input-cont"
+              placeholder= "Selecione uma instituição"
+              options={options}
+              onChange={handleChange}
+            />
+          </div>
+          <div className='calendario'>
+          
+          </div>
+        </>
+        );
+        
 }
+
+export default Agendamento
