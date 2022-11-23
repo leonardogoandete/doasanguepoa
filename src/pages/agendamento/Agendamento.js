@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Api } from '../../config/Api';
 import { padronizaData } from '../../config/configuraData';
-//import Button from "../../components/Button";
-//import Logout from '../../components/Lougout/Logout';
+//import ButtonLogout from "../../components/Button";
+import Logout from '../../components/Lougout/Logout';
 import { SelectPicker, Calendar, Button, CustomProvider } from 'rsuite';
 import pt_BR from 'rsuite/locales/pt_BR';
 import 'react-day-picker/dist/style.css';
@@ -103,6 +103,7 @@ const Agendamento = () => {
 
         return (
         <>
+        <Button onClick={() => Logout()}>Logout</Button>
         <CustomProvider locale={pt_BR}>
         <div>
           <h1>Agendamento</h1>

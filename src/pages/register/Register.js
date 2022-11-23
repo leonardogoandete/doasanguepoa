@@ -13,7 +13,7 @@ const Register = () => {
             .then(resp => {
                 const { data } = resp
                 if (data) {
-                    history.push('http://doasanguepoa-bff.herokuapp.com/v1/api/usuarios/login')
+                    history.push('/')
                 }
             })
     }
