@@ -13,102 +13,106 @@ import './Home.css'
 import Agendamento from '../agendamento/Agendamento';
 
 const Home = () => {
-        const shareUrl = "https://doasanguepoa.herokuapp.com/"
-        const [post, setPost] = React.useState(null);
-        // eslint-disable-next-line
-        const [error, setError] = React.useState(null);
-    
-        React.useEffect(() => {
-          Api.get('/postagens').then((response) => {
-            setPost(response.data);
-          })
-          .catch(error => {
-            setError(error);
-          });
-        }, []);
-      
-        if (!post) return null;
+  const shareUrl = "https://doasanguepoa.herokuapp.com/"
+  const [post, setPost] = React.useState(null);
+  // eslint-disable-next-line
+  const [error, setError] = React.useState(null);
 
-        const handleSubmit = mensagem =>{
-          const token = localStorage.getItem('u'); //pega do local storage o token
-          const decoded = jwt_decode(token); //captura o id através do jwt
-          const msg = JSON.stringify(mensagem.mensagem);//captura a string do objeto json
-          let finalString = msg.replace(/["]+/g, '');//retira as aspas da String
-          Api.post('/postagens',
-          {"mensagem": `${finalString}`, // recebe a msg mas através do final sem aspas
-          "idInstituicao": `${decoded['id']}`},
-          {
-            headers: {
-              'x-access-token': `${token}`
-            }
-          })
-          history.push('/home/Home.js')
+  React.useEffect(() => {
+    Api.get('/postagens').then((response) => {
+      setPost(response.data);
+    })
+      .catch(error => {
+        setError(error);
+      });
+  }, []);
+
+  if (!post) return null;
+
+  const handleSubmit = (msg) => {
+    const token = localStorage.getItem('u'); //pega do local storage o token
+    const decoded = jwt_decode(token); //captura o id através do jwt
+    Api.post('/postagens',
+      {
+        "mensagem": msg['mensagem'],
+        "idInstituicao": decoded['id']
+      },
+      {
+        headers: {
+          'x-access-token': token
         }
+      })
+    history.push('/home/Home.js')
+  }
 
-        return (
-          <div>
-            <Button Text="Agendamento" onClick={() => Agendamento()}/>
-            <Button Text="Sair" onClick={() => Logout()}/>
-            <div className = "publicacao">
-            <Formik
-                initialValues={{}}
-                onSubmit={handleSubmit}
-                validationSchema={{}}
-            >
-            <Form className="mensagem">
-                    <div className="Publish-Group">
-                        <Field
-                            placeholder="Faça seu pedido..."
-                            name="mensagem"
-                            className="publish-Field"
-                        />
-                    </div>
-                    <button className = "publicar" id="publicar" type="submit" onClick={handleSubmit}>
-                    Publicar</button>
-                    </Form>
-            </Formik>
+  return (
+    <div>
+      <Button Text="Agendamento" onClick={() => Agendamento()} />
+      <Button Text="Sair" onClick={() => Logout()} />
+      <div className="publicacao">
+        <Formik
+          initialValues={{}}
+          onSubmit={handleSubmit}
+        >
+          <Form className="mensagem">
+            <div className="Publish-Group">
+              <Field
+                placeholder="Faça seu pedido..."
+                name="mensagem"
+                className="publish-Field"
+              />
             </div>
-            <div className = "format">
-            <div className = "posts">
-            <h2 className="post-title">{post.idInstituicao}</h2>
-            {post.map((post) => {
-               return (
-                  <div className="post-card" key={post.id}>
-                    <h4>
-                      <IconContext.Provider
-                     value={{ color: 'black', size: '40px',}}>
-                     <HiUser/>
-                     </IconContext.Provider>
-                     </h4>
-                     <h3>
-                      {post.instituico.nome}</h3>
-                     <p className="post-body">{post.mensagem}</p>
-                     <div className="compartilharSocial">
-                     <WhatsappShareButton
-                      url={shareUrl}
-                      title={post.mensagem}
-                      className="Demo__some-network__share-button"
-                      >
-                        <WhatsappIcon size={32} round />
-                      </WhatsappShareButton>
-                      <TwitterShareButton
-                        url={shareUrl}
-                        title={post.mensagem}
-                        className="Demo__some-network__share-button"
-                      >
-                        <TwitterIcon size={32} round />
-                      </TwitterShareButton>
-                      </div>
-                     <button className = "compartilhar" onClick={() => Logout()}>Compartilhar</button>
-                     <button className = "agendar" onClick={() => Logout()}>Agendar</button>
-                     <hr></hr>
-                  </div>        
-               );
-            })}
-            </div>
-            </div>
-          </div>
-        );
+            <button
+              className="publicar"
+              id="publicar"
+              type="submit"
+              onClick={handleSubmit}>
+              Publicar
+            </button>
+          </Form>
+        </Formik>
+      </div>
+      <div className="format">
+        <div className="posts">
+          <h2 className="post-title">{post.idInstituicao}</h2>
+          {post.map((post) => {
+            return (
+              <div className="post-card" key={post.id}>
+                <h4>
+                  <IconContext.Provider
+                    value={{ color: 'black', size: '40px', }}>
+                    <HiUser />
+                  </IconContext.Provider>
+                </h4>
+                <h3>
+                  {post.instituico.nome}</h3>
+                <p className="post-body">{post.mensagem}</p>
+                <div className="compartilharSocial">
+                  <WhatsappShareButton
+                    url={shareUrl}
+                    title={post.mensagem}
+                    className="Demo__some-network__share-button"
+                  >
+                    <WhatsappIcon size={32} round />
+                  </WhatsappShareButton>
+                  <TwitterShareButton
+                    url={shareUrl}
+                    title={post.mensagem}
+                    className="Demo__some-network__share-button"
+                  >
+                    <TwitterIcon size={32} round />
+                  </TwitterShareButton>
+                </div>
+                <button className="compartilhar" onClick={() => Logout()}>Compartilhar</button>
+                <button className="agendar" onClick={() => Logout()}>Agendar</button>
+                <hr></hr>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
 
 }
 
