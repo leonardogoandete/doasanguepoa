@@ -96,7 +96,7 @@ const Agendamento = () => {
     }
     console.log(payload)
     Api.post('/agendamentos', payload).then((resp) => {
-      console.log(resp.data);
+      alert("Codigo de agendamento: "+ resp.data['id']);
     })
   }
 
