@@ -9,9 +9,7 @@ import { Formik, Form, Field } from 'formik'
 import jwt_decode from "jwt-decode";
 import { history } from '../../history'
 import { WhatsappIcon, WhatsappShareButton, TwitterIcon, TwitterShareButton } from "react-share";
-
 import './Home.css'
-import Agendamento from '../agendamento/Agendamento';
 
 const Home = () => {
   const role = validaRole()
@@ -33,6 +31,7 @@ const Home = () => {
   const handleSubmit = (msg) => {
     const token = localStorage.getItem('u'); //pega do local storage o token
     const decoded = jwt_decode(token); //captura o id através do jwt
+    history.push('/home')
     Api.post('/postagens',
       {
         "mensagem": msg['mensagem'],
@@ -43,13 +42,11 @@ const Home = () => {
           'x-access-token': token
         }
       })
-    history.push('/home')
   }
   
   if(role === 'instituicao'){
     return (
       <div>
-        <Button Text="Agendamento" onClick={() => Agendamento()} />
         <Button Text="Sair" onClick={() => Logout()} />
         <div className="publicacao">
           <Formik
