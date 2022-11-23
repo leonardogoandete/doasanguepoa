@@ -86,6 +86,7 @@ const Home = () => {
                 <h3>
                   {post.instituico.nome}</h3>
                 <p className="post-body">{post.mensagem}</p>
+                <br/><br/>
                   <WhatsappShareButton
                     url={shareUrl}
                     title={post.mensagem}
