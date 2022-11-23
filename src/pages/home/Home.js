@@ -17,7 +17,6 @@ const Home = () => {
   const [post, setPost] = React.useState(null);
   // eslint-disable-next-line
   const [error, setError] = React.useState(null);
-
   React.useEffect(() => {
     Api.get('/postagens').then((response) => {
       setPost(response.data);
@@ -42,7 +41,7 @@ const Home = () => {
           'x-access-token': token
         }
       })
-    history.push('/home/Home.js')
+    history.push('/home')
   }
 
   return (

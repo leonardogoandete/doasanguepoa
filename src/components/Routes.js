@@ -6,7 +6,7 @@ import LoginIns from '../pages/loginIns'
 import Login from '../pages/login'
 import Register from '../pages/register'
 import Home from '../pages/home'
-import NotFound from './NotFound'
+import NotFound from './NotFound/NotFound'
 import PrivateRoute from './PrivateRoute'
 import Postagem from '../pages/feed/feed.js'
 import Agendamento from '../pages/agendamento/Agendamento'
@@ -19,7 +19,7 @@ const Routes = () => (
             <Route component={Login} exact path="/"/>
             <Route component={LoginIns} exact path="/instituicao"/>
             <Route component={Register} exact path="/cadastro/usuario"/>
-            <PrivateRoute component={Home} exact path="/home/Home.js"/>
+            <PrivateRoute component={Home} exact path="/home"/>
             <PrivateRoute component={Agendamento} exact path="/agendamento"/>
             <PrivateRoute component={NotFound}/>
             <Route component={Postagem} exact path="/postagens"/>
