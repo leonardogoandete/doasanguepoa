@@ -86,11 +86,11 @@ const Home = () => {
                 <h3>
                   {post.instituico.nome}</h3>
                 <p className="post-body">{post.mensagem}</p>
-                <div className="compartilharSocial">
                   <WhatsappShareButton
                     url={shareUrl}
                     title={post.mensagem}
                     className="Demo__some-network__share-button"
+                    style={{float: 'right', marginTop: '-35px'}}
                   >
                     <WhatsappIcon size={32} round />
                   </WhatsappShareButton>
@@ -98,13 +98,11 @@ const Home = () => {
                     url={shareUrl}
                     title={post.mensagem}
                     className="Demo__some-network__share-button"
+                    style={{float: 'right', marginTop: '-35px'}}
                   >
                     <TwitterIcon size={32} round />
                   </TwitterShareButton>
-                </div>
-                <button className="compartilhar" onClick={() => Logout()}>Compartilhar</button>
-                <button className="agendar" onClick={() => Logout()}>Agendar</button>
-                <hr></hr>
+                <hr/>
               </div>
             );
           })}

@@ -62,7 +62,7 @@ const Agendamento = () => {
             Escolha o local de doação:
             <Select
               className="input-cont"
-              placeholder= "Escolha uma instituição"
+              placeholder= "Selecione uma instituição"
               options={options}
               onChange={handleChange}
             />
