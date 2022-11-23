@@ -9,6 +9,7 @@ import 'react-day-picker/dist/style.css';
 import "rsuite/dist/rsuite.css";
 import './calendar.css';
 import './Agendamento.css'
+import jwt_decode from "jwt-decode";
 
 
 const Agendamento = () => {
@@ -63,10 +64,18 @@ const Agendamento = () => {
     getData();
   }, []);
 
+  const idUsuario = () => {
+    const token = localStorage.getItem('u'); //pega do local storage o token
+    const decoded = jwt_decode(token); //captura o id através do jwt
+    const id = decoded['id']
+    console.log("ID usuario: ",id)
+    return id;
+  }
+
   const Instituição = () => {
     console.log("Escolha instituto: ", defineInstituto)
   }
-  const Data = () => {            //'Y','M','D'
+  const Data = () => {            
     console.log("Escolha data: ", padronizaData(data))
   };
   const Hora = () => {
@@ -77,7 +86,20 @@ const Agendamento = () => {
     Instituição()
     Hora()
     Data()
+    idUsuario()
+
+    const payload = {
+      "dia": padronizaData(data),
+      "idInstituicao": defineInstituto,
+      "hora": hora,
+      "idUsuario": idUsuario()
+    }
+    console.log(payload)
+    Api.post('/agendamentos', payload).then((resp) => {
+      console.log(resp.data);
+    })
   }
+
 
         return (
         <>
