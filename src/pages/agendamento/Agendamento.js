@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Api } from '../../config/Api';
+import { padronizaData } from '../../config/configuraData';
 //import Button from "../../components/Button";
 //import Logout from '../../components/Lougout/Logout';
-import Select from 'react-select';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-
-
+import { SelectPicker, Calendar, Button, CustomProvider } from 'rsuite';
+import pt_BR from 'rsuite/locales/pt_BR';
+import 'react-day-picker/dist/style.css';
+import "rsuite/dist/rsuite.css";
+import './calendar.css';
 import './Agendamento.css'
+
 
 const Agendamento = () => {
     /*    
@@ -35,11 +37,17 @@ const Agendamento = () => {
     .catch(function (error) {
       console.log(error);
   });
-  */
-
+*/
+  const horarios = ['07:00', '08:00', '09:00', '10:00'].map(
+    item => ({ label: item, value: item })
+  );
+    
   // função para pegar as instituicoes
-  const [options, setOptions] = useState([""]);
-  const [startDate, setStartDate] = useState(new Date());
+  const [instituicao, setInstituicao] = useState([""]);
+  //pega a data escolhida
+  const [data, setData] = useState([""]);
+  const [hora, setHora] = useState([""]);
+  const [defineInstituto, setDefineInstituto] = useState([""]);
 
   useEffect(() => {
     const getData = async () => {
@@ -49,35 +57,68 @@ const Agendamento = () => {
           result.map((instituicao) => {
             return arr.push({value: instituicao.id, label: instituicao.nome});
         });
-        setOptions(arr)
+        setInstituicao(arr)
       });
     };
     getData();
   }, []);
 
-  const handleChange = (escolha) => {
-    //aqui pego o ID da instituicao selecionada.
-    console.log(escolha['value']);
-    console.log(startDate.getDay() +"/"+ startDate.getMonth() + "/" + startDate.getFullYear())
+  const Instituição = () => {
+    console.log("Escolha instituto: ", defineInstituto)
+  }
+  const Data = () => {            //'Y','M','D'
+    console.log("Escolha data: ", padronizaData(data))
   };
+  const Hora = () => {
+    console.log("Escolha hora: ", hora)
+  };
+
+  const onClick = () =>{
+    Instituição()
+    Hora()
+    Data()
+  }
+
         return (
         <>
+        <CustomProvider locale={pt_BR}>
+        <div>
           <h1>Agendamento</h1>
-          <div className='selectInstituicao'>
-            Escolha o local de doação:
-            <Select
-              className="input-cont"
-              placeholder= "Selecione uma instituição"
-              options={options}
-              onChange={handleChange}
-            />
+          <div>
+          <Calendar onChange={setData} compact bordered/>
+          <br/>
+          <h6>Escolha o local de doação:</h6>
+          <SelectPicker placeholder={"Instituição"} onChange={setDefineInstituto} data={instituicao} style={{ width: 224 }}/>
+          <br/>
+          <br/>
+          <h6>Escolha o horario:</h6>
+          <SelectPicker placeholder={"Horario"} onChange={setHora} data={horarios} style={{ width: 224 }}/>
           </div>
-          <div className='calendario'>
-            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-          </div>
+        </div>
+        <br/>
+        <Button onClick={onClick}>Agendar</Button>
+        </CustomProvider>
         </>
         );
         
 }
 
 export default Agendamento
+
+/*
+
+<DayPicker
+            locale={ptBR}
+            mode="single"
+            selected={data}
+            onSelect={setData}
+          />
+
+
+            <Select
+              className="input-cont"
+              placeholder= "Selecione uma instituição"
+              options={options}
+              onChange={handleChange}
+            />
+            */

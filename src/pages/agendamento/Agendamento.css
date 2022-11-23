@@ -1,13 +1,13 @@
 .selectInstituicao{
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
   }
+
   .input-cont{
     width: 500px;
     color: #000;
   }
+
   button{
     padding: 8px 15px;
     border: none;

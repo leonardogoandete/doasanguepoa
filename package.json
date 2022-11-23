@@ -4,19 +4,20 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
+    "date-fns": "^2.29.3",
     "formik": "^1.5.7",
     "history": "^4.9.0",
     "jwt-decode": "^3.1.2",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
-    "react-datepicker": "^4.8.0",
+    "react-day-picker": "^8.3.7",
     "react-dom": "^16.8.6",
     "react-icons": "^4.6.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "react-select": "^5.6.1",
     "react-share": "^4.4.1",
+    "rsuite": "^5.22.2",
     "yup": "^0.27.0"
   },
   "scripts": {

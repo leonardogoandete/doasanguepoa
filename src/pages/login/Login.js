@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link} from "react-router-dom";
-
 import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import { Api } from '../../config/Api';
 import { history } from '../../history'
+
 
 import './Login.css'
 
@@ -30,8 +30,6 @@ const Login = () => {
 
             <div className = "titulo">Login</div>
             <div className = "Container">
-             
-            
             <div className = "texto">Preencha os campos para continuar!</div>
 
             <Formik
