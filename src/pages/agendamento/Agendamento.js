@@ -3,6 +3,8 @@ import { Api } from '../../config/Api';
 //import Button from "../../components/Button";
 //import Logout from '../../components/Lougout/Logout';
 import Select from 'react-select';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 import './Agendamento.css'
@@ -37,6 +39,7 @@ const Agendamento = () => {
 
   // função para pegar as instituicoes
   const [options, setOptions] = useState([""]);
+  const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
     const getData = async () => {
@@ -55,7 +58,7 @@ const Agendamento = () => {
   const handleChange = (escolha) => {
     //aqui pego o ID da instituicao selecionada.
     console.log(escolha['value']);
-    console.log(value)
+    console.log(startDate.getDay() +"/"+ startDate.getMonth() + "/" + startDate.getFullYear())
   };
         return (
         <>
@@ -70,7 +73,7 @@ const Agendamento = () => {
             />
           </div>
           <div className='calendario'>
-          
+            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
           </div>
         </>
         );
