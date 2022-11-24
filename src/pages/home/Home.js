@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Api } from '../../config/Api';
 import { validaRole } from '../../config/verificaRole'
 //import Button from "../../components/Button";
-import Logout from '../../components/Lougout/Logout';
+//import Logout from '../../components/Lougout/Logout';
 import Menu from '../../components/Menu';
 import { HiUser } from 'react-icons/hi';
 import { IconContext } from "react-icons";
@@ -42,7 +42,6 @@ const Home = () => {
   if(role === 'instituicao'){
     return (
       <div>
-        <Button appearance="primary" Text="Sair" onClick={() => Logout()} />
         <Menu />
         <div className="format">
         <div>
@@ -93,7 +92,6 @@ const Home = () => {
     return (
       <>
       <div>
-        <Button Text="Sair" onClick={() => Logout()} />
         <Menu />
         <div className="publicacao">
         <div className="format">

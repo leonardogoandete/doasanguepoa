@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Api } from '../../config/Api';
 import { padronizaData } from '../../config/configuraData';
-//import ButtonLogout from "../../components/Button";
-import Logout from '../../components/Lougout/Logout';
 import Menu from '../../components/Menu';
 import { validaRole } from '../../config/verificaRole'
 import { history } from '../../history'
@@ -64,7 +62,6 @@ const Agendamento = () => {
       if(role === 'usuario'){
         return (
         <>
-        <Button onClick={() => Logout()}>Logout</Button>
         <Menu />
         <CustomProvider locale={pt_BR}>
         <div>
