@@ -5,3 +5,8 @@ body {
     /*background: #8cb0bf ;  */
     color: #fdfdfd;
 }
+
+.agendamento{
+    width: 580px;
+    margin: auto;
+}

@@ -15,7 +15,7 @@ import jwt_decode from "jwt-decode";
 
 const Agendamento = () => {
   const role = validaRole()
-  const horarios = ['07:00', '08:00', '09:00', '10:00'].map(
+  const horarios = ["07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"].map(
     item => ({ label: item, value: item })
   );
   // função para pegar as instituicoes
@@ -54,9 +54,15 @@ const Agendamento = () => {
       "hora": hora,
       "idUsuario": idUsuario()
     }
-    console.log(payload)
-    Api.post('/agendamentos', payload).then((resp) => {
-      alert("Codigo de agendamento: "+ resp.data['id']);
+
+    Api.post('/agendamentos', payload)
+    .then(function (resp) {
+      //
+      if(resp.data['erro']){
+        alert(resp.data['erro']);
+      }else{
+        alert("Agendado com sucesso! ID:" + resp.data['id']);
+      }
     })
   }
       if(role === 'usuario'){
@@ -64,7 +70,7 @@ const Agendamento = () => {
         <>
         <Menu />
         <CustomProvider locale={pt_BR}>
-        <div>
+        <div className="agendamento">
           <h1>Agendamento</h1>
           <div>
           <Calendar onChange={setData} compact bordered/>
@@ -76,9 +82,9 @@ const Agendamento = () => {
           <h6>Escolha o horario:</h6>
           <SelectPicker placeholder={"Horario"} onChange={setHora} data={horarios} style={{ width: 224 }}/>
           </div>
+          <br/>
+          <Button appearance="primary" size="lg" onClick={onClick} style={{marginLeft: 425, marginTop: -20 }}>Agendar</Button>
         </div>
-        <br/>
-        <Button onClick={onClick}>Agendar</Button>
         </CustomProvider>
         </>
         );
@@ -94,21 +100,3 @@ const Agendamento = () => {
 }
 
 export default Agendamento
-
-/*
-
-<DayPicker
-            locale={ptBR}
-            mode="single"
-            selected={data}
-            onSelect={setData}
-          />
-
-
-            <Select
-              className="input-cont"
-              placeholder= "Selecione uma instituição"
-              options={options}
-              onChange={handleChange}
-            />
-            */
