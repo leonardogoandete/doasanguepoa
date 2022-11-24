@@ -4,7 +4,6 @@ import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import { Api } from '../../config/Api';
 import { history } from '../../history'
-import { message } from 'antd';
 import './Login.css'
 
 
@@ -14,11 +13,10 @@ const Login = () => {
             .then(resp => {
                 const { data } = resp
                 if (data && resp.status === 200) {
-                    message.success("Login realizado com sucesso!")
                     localStorage.setItem('u', data.token)
                     history.push('/home')
                 }
-            }).catch(message.error("Erro ao realizar login!"))                
+            })               
     }
 
     const validations = yup.object().shape({

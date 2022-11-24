@@ -6,7 +6,6 @@ import Logout from '../../components/Lougout/Logout';
 import Menu from '../../components/Menu';
 import { validaRole } from '../../config/verificaRole'
 import { history } from '../../history'
-import { message } from 'antd';
 import { SelectPicker, Calendar, Button, CustomProvider } from 'rsuite';
 import pt_BR from 'rsuite/locales/pt_BR';
 import 'react-day-picker/dist/style.css';
@@ -60,7 +59,6 @@ const Agendamento = () => {
     console.log(payload)
     Api.post('/agendamentos', payload).then((resp) => {
       alert("Codigo de agendamento: "+ resp.data['id']);
-      message.success("Agendamento realizado!")
     })
   }
       if(role === 'usuario'){
@@ -91,7 +89,7 @@ const Agendamento = () => {
         history.push('/home')
         return(
           <>
-            {message.error("Acesso não autorizado!")}
+            {<alert>Não autorizado</alert>}
           </>
         );
       }
