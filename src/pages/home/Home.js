@@ -36,11 +36,6 @@ const Home = () => {
       {
         "mensagem": msg['mensagem'],
         "idInstituicao": decoded['id']
-      },
-      {
-        headers: {
-          'x-access-token': token
-        }
       })
   }
   
