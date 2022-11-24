@@ -7,7 +7,6 @@ import Menu from '../../components/Menu';
 import { HiUser } from 'react-icons/hi';
 import { IconContext } from "react-icons";
 import jwt_decode from "jwt-decode";
-import { message } from 'antd';
 import { Input, Button } from 'rsuite';
 import { WhatsappIcon, WhatsappShareButton, TwitterIcon, TwitterShareButton } from "react-share";
 import './Home.css'
@@ -37,13 +36,7 @@ const Home = () => {
       {
         "mensagem": mensagem,
         "idInstituicao": decoded['id']
-      }).then( resp => {
-        if(resp.status === 200) message.success("Postagem realizada com sucesso!")
-        }
-      ).catch( resp => {
-        if(resp.status >= 400 && resp.status < 500) message.error("Não foi possivel realizar a postagem!")
-      }
-      )
+      })
   }
   
   if(role === 'instituicao'){
