@@ -3,6 +3,9 @@ import { Api } from '../../config/Api';
 import { padronizaData } from '../../config/configuraData';
 //import ButtonLogout from "../../components/Button";
 import Logout from '../../components/Lougout/Logout';
+import { validaRole } from '../../config/verificaRole'
+import { history } from '../../history'
+import { message } from 'antd';
 import { SelectPicker, Calendar, Button, CustomProvider } from 'rsuite';
 import pt_BR from 'rsuite/locales/pt_BR';
 import 'react-day-picker/dist/style.css';
@@ -13,36 +16,10 @@ import jwt_decode from "jwt-decode";
 
 
 const Agendamento = () => {
-    /*    
-    var axios = require('axios');
-    var data = JSON.stringify({
-      "dia": "2023/12/22",
-      "idInstituicao": 1,
-      "hora": "13:00",
-      "idUsuario": 1
-    });
-    
-    var config = {
-      method: 'post',
-      url: 'http://doasanguepoa-bff.herokuapp.com/v1/api/agendamentos',
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      data : data
-    };
-    
-    axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-      console.log(error);
-  });
-*/
+  const role = validaRole()
   const horarios = ['07:00', '08:00', '09:00', '10:00'].map(
     item => ({ label: item, value: item })
   );
-    
   // função para pegar as instituicoes
   const [instituicao, setInstituicao] = useState([""]);
   //pega a data escolhida
@@ -72,22 +49,7 @@ const Agendamento = () => {
     return id;
   }
 
-  const Instituição = () => {
-    console.log("Escolha instituto: ", defineInstituto)
-  }
-  const Data = () => {            
-    console.log("Escolha data: ", padronizaData(data))
-  };
-  const Hora = () => {
-    console.log("Escolha hora: ", hora)
-  };
-
   const onClick = () =>{
-    Instituição()
-    Hora()
-    Data()
-    idUsuario()
-
     const payload = {
       "dia": padronizaData(data),
       "idInstituicao": defineInstituto,
@@ -97,10 +59,10 @@ const Agendamento = () => {
     console.log(payload)
     Api.post('/agendamentos', payload).then((resp) => {
       alert("Codigo de agendamento: "+ resp.data['id']);
+      message.success("Agendamento realizado!")
     })
   }
-
-
+      if(role === 'usuario'){
         return (
         <>
         <Button onClick={() => Logout()}>Logout</Button>
@@ -123,6 +85,14 @@ const Agendamento = () => {
         </CustomProvider>
         </>
         );
+      }else{
+        history.push('/home')
+        return(
+          <>
+            {message.error("Acesso não autorizado!")}
+          </>
+        );
+      }
         
 }
 

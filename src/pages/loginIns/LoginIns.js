@@ -10,7 +10,6 @@ import './LoginIns.css'
 const LoginIns = () => {
     const handleSubmit = values => {
         Api.post('/instituicoes/login', values)
-        //Api.post('/usuario/login', values)
             .then(resp => {
                 const { data } = resp
                 if (data && resp.status === 200) {
@@ -18,7 +17,7 @@ const LoginIns = () => {
                     localStorage.setItem('u', data.token)
                     history.push('/home')
                 }
-            }).catch(message.error("Erro ao realizar login!"))   
+            }).catch( message.error("Erro ao realizar login!"))   
     }
 
     const validations = yup.object().shape({

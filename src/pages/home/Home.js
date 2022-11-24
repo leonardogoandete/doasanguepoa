@@ -1,23 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Api } from '../../config/Api';
 import { validaRole } from '../../config/verificaRole'
-import Button from "../../components/Button";
+//import Button from "../../components/Button";
 import Logout from '../../components/Lougout/Logout';
 import { HiUser } from 'react-icons/hi';
 import { IconContext } from "react-icons";
-import { Formik, Form, Field } from 'formik'
 import jwt_decode from "jwt-decode";
-import { history } from '../../history'
+import { message } from 'antd';
+import { Input, Button } from 'rsuite';
 import { WhatsappIcon, WhatsappShareButton, TwitterIcon, TwitterShareButton } from "react-share";
 import './Home.css'
 
 const Home = () => {
   const role = validaRole()
   const shareUrl = "https://doasanguepoa.herokuapp.com/"
-  const [post, setPost] = React.useState(null);
+  const [post, setPost] = useState(null);
+  const [mensagem, setMensagem] = useState([""]);
   // eslint-disable-next-line
-  const [error, setError] = React.useState(null);
-  React.useEffect(() => {
+  const [error, setError] = useState(null);
+  useEffect(() => {
     Api.get('/postagens').then((response) => {
       setPost(response.data);
     })
@@ -28,45 +29,32 @@ const Home = () => {
 
   if (!post) return null;
 
-  const handleSubmit = (msg) => {
+  const handleSubmit = () => {
     const token = localStorage.getItem('u'); //pega do local storage o token
     const decoded = jwt_decode(token); //captura o id através do jwt
-    history.push('/home')
     Api.post('/postagens',
       {
-        "mensagem": msg['mensagem'],
+        "mensagem": mensagem,
         "idInstituicao": decoded['id']
-      })
+      }).then( resp => {
+        if(resp.status === 200) message.success("Postagem realizada com sucesso!")
+        }
+      ).catch( resp => {
+        if(resp.status >= 400 && resp.status < 500) message.error("Não foi possivel realizar a postagem!")
+      }
+      )
   }
   
   if(role === 'instituicao'){
     return (
       <div>
-        <Button Text="Sair" onClick={() => Logout()} />
-        <div className="publicacao">
-          <Formik
-            initialValues={{}}
-            onSubmit={handleSubmit}
-          >
-            <Form className="mensagem">
-              <div className="Publish-Group">
-                <Field
-                  placeholder="Faça seu pedido..."
-                  name="mensagem"
-                  className="publish-Field"
-                />
-              </div>
-              <button
-                className="publicar"
-                id="publicar"
-                type="submit"
-                onClick={handleSubmit}>
-                Publicar
-              </button>
-            </Form>
-          </Formik>
-        </div>
+
+        <Button appearance="primary" Text="Sair" onClick={() => Logout()} />
         <div className="format">
+        <div>
+          <Input as="textarea" onChange={setMensagem} className="formPostagem" rows={3} style={{ width: 400, marginLeft: 120}} placeholder="Insira a mensagem..." />
+          <Button appearance="primary" onClick={handleSubmit} style={{marginLeft: 425, marginTop: 10 }}>Postar</Button>
+        </div>
           <div className="posts">
             <h2 className="post-title">{post.idInstituicao}</h2>
             {post.map((post) => {
@@ -113,9 +101,8 @@ const Home = () => {
       <div>
         <Button Text="Sair" onClick={() => Logout()} />
         <div className="publicacao">
-          
-        
         <div className="format">
+        
           <div className="posts">
             <h2 className="post-title">{post.idInstituicao}</h2>
             {post.map((post) => {

@@ -13,7 +13,7 @@ const Login = () => {
         Api.post('/usuarios/login', values)
             .then(resp => {
                 const { data } = resp
-                if (data) {
+                if (data && resp.status === 200) {
                     message.success("Login realizado com sucesso!")
                     localStorage.setItem('u', data.token)
                     history.push('/home')
