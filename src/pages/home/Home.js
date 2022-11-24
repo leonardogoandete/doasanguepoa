@@ -37,6 +37,8 @@ const Home = () => {
       {
         "mensagem": mensagem,
         "idInstituicao": decoded['id']
+      }).then(() => {
+        alert("Postagem realizada");
       })
   }
   
