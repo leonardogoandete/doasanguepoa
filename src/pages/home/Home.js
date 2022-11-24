@@ -3,6 +3,7 @@ import { Api } from '../../config/Api';
 import { validaRole } from '../../config/verificaRole'
 //import Button from "../../components/Button";
 import Logout from '../../components/Lougout/Logout';
+import Menu from '../../components/Menu';
 import { HiUser } from 'react-icons/hi';
 import { IconContext } from "react-icons";
 import jwt_decode from "jwt-decode";
@@ -48,8 +49,8 @@ const Home = () => {
   if(role === 'instituicao'){
     return (
       <div>
-
         <Button appearance="primary" Text="Sair" onClick={() => Logout()} />
+        <Menu />
         <div className="format">
         <div>
           <Input as="textarea" onChange={setMensagem} className="formPostagem" rows={3} style={{ width: 400, marginLeft: 120}} placeholder="Insira a mensagem..." />
@@ -100,9 +101,9 @@ const Home = () => {
       <>
       <div>
         <Button Text="Sair" onClick={() => Logout()} />
+        <Menu />
         <div className="publicacao">
         <div className="format">
-        
           <div className="posts">
             <h2 className="post-title">{post.idInstituicao}</h2>
             {post.map((post) => {
