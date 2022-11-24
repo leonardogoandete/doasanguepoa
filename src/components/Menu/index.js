@@ -22,7 +22,7 @@ const Menu = () => {
                 <Nav.Item >Products</Nav.Item>
             </Nav>
             <Nav pullRight>
-                <Nav.Item icon={<ExitIcon />} onClick={Logout}>Logout</Nav.Item>
+                <Nav.Item icon={<ExitIcon />} onClick={Logout}>Sair</Nav.Item>
             </Nav>
             </Navbar>
             </>
@@ -39,7 +39,7 @@ const Menu = () => {
                 <Nav.Item >Products</Nav.Item>
             </Nav>
             <Nav pullRight>
-                <Nav.Item icon={<ExitIcon />} onClick={Logout}>Logout</Nav.Item>
+                <Nav.Item icon={<ExitIcon />} onClick={Logout}>Sair</Nav.Item>
             </Nav>
             </Navbar>
             </>
