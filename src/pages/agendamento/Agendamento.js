@@ -57,13 +57,9 @@ const Agendamento = () => {
 
     Api.post('/agendamentos', payload)
     .then(function (resp) {
-      //
-      if(resp.data['erro']){
-        alert(resp.data['erro']);
-      }else{
-        alert("Agendado com sucesso! ID:" + resp.data['id']);
-      }
-    })
+      alert(resp.data);
+    }).catch( function(resp){
+      alert(resp.data)})
   }
       if(role === 'usuario'){
         return (
