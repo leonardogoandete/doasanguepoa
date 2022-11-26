@@ -1,6 +1,6 @@
 .Container{
     width: 400px;
-    height: 395px;
+    height: 415px;
     margin: auto;   
     overflow: auto;
     background:white;  
@@ -74,11 +74,11 @@
     border-radius: 5px;
     background: #046ee5;
     color: black;
-    width: 333px;
+    width: 300px;
     height: 54.06px;
     font-size: 20px;
     margin-top: 30px;
-    margin-left: 33px;  
+    margin-left: 48px;  
 }
 
 .Login-Button:hover {

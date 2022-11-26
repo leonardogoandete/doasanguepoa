@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Api } from '../../config/Api';
 import { validaRole } from '../../config/verificaRole'
-//import Button from "../../components/Button";
-//import Logout from '../../components/Lougout/Logout';
-import { history } from "../../history"
 import Menu from '../../components/Menu';
 import { HiUser } from 'react-icons/hi';
 import { IconContext } from "react-icons";
@@ -39,6 +36,7 @@ const Home = () => {
         "idInstituicao": decoded['id']
       }).then(() => {
         alert("Postagem realizada");
+        window.location.reload();
       })
   }
   

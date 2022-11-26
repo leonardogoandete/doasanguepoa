@@ -18,8 +18,6 @@ const Menu = () => {
             <Navbar.Brand href="#">DoaSangue</Navbar.Brand>
             <Nav >
                 <Nav.Item icon={<HomeIcon />}>Inicio</Nav.Item>
-                <Nav.Item >News</Nav.Item>
-                <Nav.Item >Products</Nav.Item>
             </Nav>
             <Nav pullRight>
                 <Nav.Item icon={<ExitIcon />} onClick={Logout}>Sair</Nav.Item>
@@ -35,8 +33,6 @@ const Menu = () => {
             <Nav >
                 <Nav.Item href="/home" icon={<HomeIcon />}>Inicio</Nav.Item>
                 <Nav.Item href="/agendamento" icon={<CalendarIcon/>}>Agendamento</Nav.Item>
-                <Nav.Item >News</Nav.Item>
-                <Nav.Item >Products</Nav.Item>
             </Nav>
             <Nav pullRight>
                 <Nav.Item icon={<ExitIcon />} onClick={Logout}>Sair</Nav.Item>

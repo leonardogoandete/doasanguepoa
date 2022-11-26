@@ -26,7 +26,7 @@ const LoginIns = () => {
         <>  
 
             <div className = "titulo">Login</div>
-            <div className = "Container">
+            <div className = "ContainerI">
             <div className = "texto"><h5>Instituição</h5><br/>Preencha os campos para continuar!</div>
 
             <Formik
