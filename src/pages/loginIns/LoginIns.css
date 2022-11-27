@@ -77,3 +77,8 @@
 .Login-Button:hover {
     cursor: pointer;
 }
+
+a {
+    text-decoration: none;
+    color: #1675e0;
+}
