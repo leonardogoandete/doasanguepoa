@@ -57,7 +57,7 @@ const Login = () => {
                     <Link to="/cadastro/usuario">&nbsp;Registre-se</Link>
                     </div>
                     <div className = "l_instituicao"> É Instituição?
-                    <Link to="/instituicao">&nbsp;Login</Link>
+                    <Link className="linkReferencia" to="/instituicao">&nbsp;Login</Link>
                     </div>
                 </Form>
             </Formik>
