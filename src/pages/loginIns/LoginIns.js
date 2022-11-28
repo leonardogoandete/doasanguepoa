@@ -52,7 +52,7 @@ const LoginIns = () => {
                     </div>
                     <button className="Login-Button" type="submit" onClick={handleSubmit}>Login</button>
                     <div className = "l_instituicao"> É Usuário?
-                    <Link to="/">&nbsp;Login</Link>
+                    <Link className="linkReferencia" to="/">&nbsp;Login</Link>
                     </div>
                 </Form>
             </Formik>

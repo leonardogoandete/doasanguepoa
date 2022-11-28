@@ -54,7 +54,7 @@ const Login = () => {
                     </div>
                     <button className="Login-Button" type="submit" onClick={handleSubmit}>Login</button>
                     <div className = "register"> Não tem conta?
-                    <Link to="/cadastro/usuario">&nbsp;Registre-se</Link>
+                    <Link className="linkReferencia" to="/cadastro/usuario">&nbsp;Registre-se</Link>
                     </div>
                     <div className = "l_instituicao"> É Instituição?
                     <Link className="linkReferencia" to="/instituicao">&nbsp;Login</Link>
