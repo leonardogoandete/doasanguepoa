@@ -78,7 +78,6 @@
     cursor: pointer;
 }
 
-a {
-    text-decoration: none;
+.linkReferencia {
     color: #1675e0;
 }
