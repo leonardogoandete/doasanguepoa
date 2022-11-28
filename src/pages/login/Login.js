@@ -54,10 +54,10 @@ const Login = () => {
                     </div>
                     <button className="Login-Button" type="submit" onClick={handleSubmit}>Login</button>
                     <div className = "register"> Não tem conta?
-                    <Link to="/cadastro/usuario">Registre-se</Link>
+                    <Link to="/cadastro/usuario">&nbsp;Registre-se</Link>
                     </div>
                     <div className = "l_instituicao"> É Instituição?
-                    <Link to="/instituicao">Login</Link>
+                    <Link to="/instituicao">&nbsp;Login</Link>
                     </div>
                 </Form>
             </Formik>
