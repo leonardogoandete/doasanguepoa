@@ -35,8 +35,9 @@ const Home = () => {
     Api.post('/postagens',
       {
         "mensagem": mensagem,
-        "idInstituicao": decoded['id']
-      }).then(() => {
+        "titulo": decoded['upn']
+      },{ headers: { Authorization: `Bearer ${localStorage.getItem('u')}`} }
+      ).then(() => {
         alert("Postagem realizada");
         window.location.reload();
       })
