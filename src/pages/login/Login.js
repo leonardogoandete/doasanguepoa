@@ -9,7 +9,7 @@ import './Login.css'
 
 const Login = () => {
     const handleSubmit = values => {
-        Api.post('/usuarios/login', values)
+        Api.post('/auth/login', values)
             .then(resp => {
                 const { data } = resp
                 if (data && resp.status === 200) {
@@ -20,7 +20,7 @@ const Login = () => {
     }
 
     const validations = yup.object().shape({
-        cpf: yup.number().min(11).required(),
+        documento: yup.number().min(11).required(),
         senha: yup.string().min(2).required()
     })
 
@@ -39,8 +39,8 @@ const Login = () => {
                 <Form className="Login">
                     <div className="Login-Group">
                         <Field
-                            placeholder="Digite seu CPF"
-                            name="cpf"
+                            placeholder="Digite seu CPF ou CNPJ"
+                            name="documento"
                             className="Login-Field"
                         />
                     </div>
@@ -55,9 +55,6 @@ const Login = () => {
                     <button className="Login-Button" type="submit" onClick={handleSubmit}>Login</button>
                     <div className = "register"> Não tem conta?
                     <Link className="linkReferencia" to="/cadastro/usuario">&nbsp;Registre-se</Link>
-                    </div>
-                    <div className = "l_instituicao"> É Instituição?
-                    <Link className="linkReferencia" to="/instituicao">&nbsp;Login</Link>
                     </div>
                 </Form>
             </Formik>

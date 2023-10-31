@@ -7,10 +7,11 @@ import ExitIcon from '@rsuite/icons/Exit';
 import Logout from '../../components/Lougout/Logout';
 import './menu.css'
 
+
 const Menu = () => {
     const role = validaRole()
-
-    if(role === 'instituicao'){
+ 
+    if(role === 'INSTITUICAO'){
         return (
 
             <>
@@ -25,7 +26,7 @@ const Menu = () => {
             </Navbar>
             </>
         );
-    }else if(role === 'usuario'){
+    }else if(role === 'USUARIO'){
         return (
             <>
             <Navbar>

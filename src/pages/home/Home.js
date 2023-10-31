@@ -17,7 +17,9 @@ const Home = () => {
   // eslint-disable-next-line
   const [error, setError] = useState(null);
   useEffect(() => {
-    Api.get('/postagens').then((response) => {
+    Api.get('/postagens', 
+    { headers: { Authorization: `Bearer ${localStorage.getItem('u')}`} })
+    .then((response) => {
       setPost(response.data);
     })
       .catch(error => {
@@ -40,7 +42,7 @@ const Home = () => {
       })
   }
   
-  if(role === 'instituicao'){
+  if(role === 'INSTITUICAO'){
     return (
       <div>
         <Menu />
@@ -50,7 +52,7 @@ const Home = () => {
           <Button appearance="primary" onClick={handleSubmit} style={{marginLeft: 425, marginTop: 10 }}>Postar</Button>
         </div>
           <div className="posts">
-            <h2 className="post-title">{post.idInstituicao}</h2>
+            <h2 className="post-title">{post.titulo}</h2>
             {post.map((post) => {
               return (
                 <div className="post-card" key={post.id}>
@@ -61,7 +63,7 @@ const Home = () => {
                     </IconContext.Provider>
                   </h4>
                   <h3>
-                    {post.instituico.nome}</h3>
+                    {post.nomeInstituicao}</h3>
                   <p className="post-body">{post.mensagem}</p>
                   <br/><br/>
                     <WhatsappShareButton
@@ -89,7 +91,7 @@ const Home = () => {
       </div>
     );
   
-  }else if(role === 'usuario'){
+  }else if(role === 'USUARIO'){
     return (
       <>
       <div>
@@ -97,7 +99,7 @@ const Home = () => {
         <div className="publicacao">
         <div className="format">
           <div className="posts">
-            <h2 className="post-title">{post.idInstituicao}</h2>
+            <h2 className="post-title">{post.nomeInstituicao}</h2>
             {post.map((post) => {
               return (
                 <div className="post-card" key={post.id}>
@@ -108,7 +110,7 @@ const Home = () => {
                     </IconContext.Provider>
                   </h4>
                   <h3>
-                    {post.instituico.nome}</h3>
+                    {post.titulo}</h3>
                   <p className="post-body">{post.mensagem}</p>
                   <br/><br/>
                     <WhatsappShareButton
