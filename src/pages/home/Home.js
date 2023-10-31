@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Api } from '../../config/Api';
 import { validaRole } from '../../config/verificaRole'
 import Menu from '../../components/Menu';
-import { HiUser } from 'react-icons/hi';
 import { IconContext } from "react-icons";
 import jwt_decode from "jwt-decode";
 import { Input, Button } from 'rsuite';
@@ -58,9 +57,8 @@ const Home = () => {
               return (
                 <div className="post-card" key={post.id}>
                   <h4>
-                    <IconContext.Provider
-                      value={{ color: 'black', size: '40px', }}>
-                      <HiUser />
+                    <IconContext.Provider>
+                      <img src={post.avatar} alt='icone do perfil'/>
                     </IconContext.Provider>
                   </h4>
                   <h3>
@@ -105,9 +103,8 @@ const Home = () => {
               return (
                 <div className="post-card" key={post.id}>
                   <h4>
-                    <IconContext.Provider
-                      value={{ color: 'black', size: '40px', }}>
-                      <HiUser />
+                    <IconContext.Provider>
+                      <img src={post.avatar} alt='icone do perfil'/>
                     </IconContext.Provider>
                   </h4>
                   <h3>
