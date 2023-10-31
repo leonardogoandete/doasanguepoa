@@ -23,7 +23,7 @@ const Feed = () => {
         <h2 className="post-title">{post.titulo}</h2>
         {post.map((post) => {
            return (
-              <div className="post-card" key={post.nome}>
+              <div className="post-card" key={post.id}>
                  <h3>{post.nomeInstituicao}</h3>
                  <p className="post-body">{post.mensagem}</p>
               </div>

@@ -1,7 +1,7 @@
 import { history } from '../../history'
 
 const Logout = () => {  
-        localStorage.setItem('u', {"token":null})
+        localStorage.setItem('u', {"token":null});
         history.push('/') 
     }
 
