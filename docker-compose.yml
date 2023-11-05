@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - BASE_URL_API=http://testeurl:8081/
     ports:
       - '8080:80'
 
