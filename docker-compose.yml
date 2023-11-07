@@ -5,18 +5,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    # environment:
-    #   - REACT_APP_URL_API=http://localhost:8082
     ports:
       - '8080:80'
-
-#  client:
-#    stdin_open: true
-#    build:
-#      context: .
-#      dockerfile: Dockerfile.dev
-#    ports:
-#      - "4000:4000"
-#    volumes:
-#      - "home/app/node_modules"
-#      - "./:/home/app"
