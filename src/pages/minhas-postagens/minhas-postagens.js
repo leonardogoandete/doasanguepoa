@@ -14,7 +14,7 @@ const MinhasPostagens = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(process.env.REACT_APP_URL_API_POSTAGENS+'/instituicoes/postagens', {
+    axios.get(process.env.REACT_APP_URL_API_POSTAGENS+'/postagens/instituicao', {
       headers: { Authorization: `Bearer ${localStorage.getItem('u')}` },
     })
       .then((response) => {
