@@ -36,7 +36,7 @@ const Home = () => {
     axios.post(process.env.REACT_APP_URL_API_POSTAGENS+'/postagens',
       {
         "mensagem": mensagem,
-        "titulo": decoded['upn']
+        "cnpj": decoded['upn']
       },{ headers: { Authorization: `Bearer ${localStorage.getItem('u')}`} }
       ).then(() => {
         alert("Postagem realizada");
