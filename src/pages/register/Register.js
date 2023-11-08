@@ -2,12 +2,12 @@ import React from 'react'
 import { Link} from "react-router-dom";
 import {Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
-// import { Api } from '../../config/Api';
+import './Register.css'
 import { history } from '../../history'
 import axios from "axios";
 // require('dotenv').config();
 
-import './Register.css'
+
 
 const Register = () => {
     const handleSubmit = values => {
