@@ -18,7 +18,7 @@ const Home = () => {
   // eslint-disable-next-line
   const [error, setError] = useState(null);
   useEffect(() => {
-    axios.get(REACT_APP_URL_API_POSTAGENS+'/postagens', 
+    axios.get(process.env.REACT_APP_URL_API_POSTAGENS+'/postagens', 
     { headers: { Authorization: `Bearer ${localStorage.getItem('u')}`} })
     .then((response) => {
       setPost(response.data);
@@ -33,7 +33,7 @@ const Home = () => {
   const handleSubmit = () => {
     const token = localStorage.getItem('u'); //pega do local storage o token
     const decoded = jwt_decode(token); //captura o id através do jwt
-    Api.post('/postagens',
+    axios.post(process.env.REACT_APP_URL_API_POSTAGENS+'/postagens',
       {
         "mensagem": mensagem,
         "titulo": decoded['upn']
@@ -60,7 +60,7 @@ const Home = () => {
                 <div className="post-card" key={post.id}>
                   <h4>
                     <IconContext.Provider>
-                      <img src={post.avatar} alt='icone do perfil'/>
+                      <img src='https://api.dicebear.com/7.x/adventurer/svg?seed=auhs' alt='icone do perfil'/>
                     </IconContext.Provider>
                   </h4>
                   <h3>
@@ -106,7 +106,7 @@ const Home = () => {
                 <div className="post-card" key={post.id}>
                   <h4>
                     <IconContext.Provider>
-                      <img src={post.avatar} alt='icone do perfil'/>
+                      <img src='https://api.dicebear.com/7.x/adventurer/svg?seed=auhs' alt='icone do perfil'/>
                     </IconContext.Provider>
                   </h4>
                   <h3>

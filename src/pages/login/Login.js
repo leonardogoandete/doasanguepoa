@@ -6,7 +6,7 @@ import * as yup from 'yup';
 import { history } from '../../history';
 import './Login.css';
 import axios from "axios";
-require('dotenv').config();
+// require('dotenv').config();
 
 
 const Login = () => {
@@ -23,7 +23,7 @@ const Login = () => {
             'Content-Type': 'application/json'
         };
 
-        axios.post(REACT_APP_URL_API_LOGIN+'/auth/login', jsonData, { headers: headers })
+        axios.post(process.env.REACT_APP_URL_API_LOGIN+'/auth/login', jsonData, { headers: headers })
             .then(resp => {
                 const { data } = resp
                 if (data && resp.status === 200) {

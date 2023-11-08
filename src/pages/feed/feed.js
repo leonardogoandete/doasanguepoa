@@ -9,7 +9,7 @@ const Feed = () => {
     // eslint-disable-next-line
     const [error, setError] = React.useState(null);
     React.useEffect(() => {
-      axios.get(REACT_APP_URL_API_POSTAGENS+'/postagens', { headers: { Authorization: `Bearer ${localStorage.getItem('u')}`} }).then((response) => {
+      axios.get(process.env.REACT_APP_URL_API_POSTAGENS+'/postagens', { headers: { Authorization: `Bearer ${localStorage.getItem('u')}`} }).then((response) => {
         setPost(response.data);
       })
       .catch(error => {
