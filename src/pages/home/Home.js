@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Api } from '../../config/Api';
+//import { Api } from '../../config/Api';
 import { validaRole } from '../../config/verificaRole'
 import Menu from '../../components/Menu';
 import { IconContext } from "react-icons";
@@ -7,6 +7,8 @@ import jwt_decode from "jwt-decode";
 import { Input, Button } from 'rsuite';
 import { WhatsappIcon, WhatsappShareButton, TwitterIcon, TwitterShareButton } from "react-share";
 import './Home.css'
+import axios from "axios";
+require('dotenv').config();
 
 const Home = () => {
   const role = validaRole()
@@ -16,7 +18,7 @@ const Home = () => {
   // eslint-disable-next-line
   const [error, setError] = useState(null);
   useEffect(() => {
-    Api.get('/postagens', 
+    axios.get(REACT_APP_URL_API_POSTAGENS+'/postagens', 
     { headers: { Authorization: `Bearer ${localStorage.getItem('u')}`} })
     .then((response) => {
       setPost(response.data);

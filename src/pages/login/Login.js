@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { Formik, Form, Field } from 'formik';
 import * as yup from 'yup';
-import { Api } from '../../config/Api';
+//import { Api } from '../../config/Api';
 import { history } from '../../history';
 import './Login.css';
+import axios from "axios";
+require('dotenv').config();
 
 
 const Login = () => {
@@ -21,7 +23,7 @@ const Login = () => {
             'Content-Type': 'application/json'
         };
 
-        Api.post('/auth/login', jsonData, { headers: headers })
+        axios.post(REACT_APP_URL_API_LOGIN+'/auth/login', jsonData, { headers: headers })
             .then(resp => {
                 const { data } = resp
                 if (data && resp.status === 200) {

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Api } from '../../config/Api';
+//import { Api } from '../../config/Api';
 import { validaRole } from '../../config/verificaRole';
 import Menu from '../../components/Menu';
 import { IconContext } from 'react-icons';
 import './minhas-postagens.css';
+import axios from "axios";
+require('dotenv').config();
 
 const MinhasPostagens = () => {
   const role = validaRole();
@@ -12,7 +14,7 @@ const MinhasPostagens = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    Api.get('/instituicoes/postagens', {
+    axios.get(process.env.REACT_APP_URL_API_POSTAGENS+'/instituicoes/postagens', {
       headers: { Authorization: `Bearer ${localStorage.getItem('u')}` },
     })
       .then((response) => {

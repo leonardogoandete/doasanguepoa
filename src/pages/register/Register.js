@@ -2,14 +2,16 @@ import React from 'react'
 import { Link} from "react-router-dom";
 import {Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
-import { Api } from '../../config/Api';
+// import { Api } from '../../config/Api';
 import { history } from '../../history'
+import axios from "axios";
+require('dotenv').config();
 
 import './Register.css'
 
 const Register = () => {
     const handleSubmit = values => {
-        Api.post('/usuarios', values)
+        axios.post(process.env.REACT_APP_URL_API_CADASTRO+'/usuarios', values)
             .then(resp => {
                 const { data } = resp
                 if (data) {

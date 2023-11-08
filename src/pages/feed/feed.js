@@ -1,5 +1,7 @@
 import React from 'react'
-import { Api } from '../../config/Api';
+//import { Api } from '../../config/Api';
+import axios from "axios";
+require('dotenv').config();
 
 const Feed = () => {
     
@@ -7,7 +9,7 @@ const Feed = () => {
     // eslint-disable-next-line
     const [error, setError] = React.useState(null);
     React.useEffect(() => {
-      Api.get('/postagens', { headers: { Authorization: `Bearer ${localStorage.getItem('u')}`} }).then((response) => {
+      axios.get(REACT_APP_URL_API_POSTAGENS+'/postagens', { headers: { Authorization: `Bearer ${localStorage.getItem('u')}`} }).then((response) => {
         setPost(response.data);
       })
       .catch(error => {
