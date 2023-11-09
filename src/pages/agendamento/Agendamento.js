@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Api } from '../../config/Api';
 import { padronizaData } from '../../config/configuraData';
 import Menu from '../../components/Menu';
 import { validaRole } from '../../config/verificaRole'
@@ -11,6 +10,7 @@ import "rsuite/dist/rsuite.css";
 import './calendar.css';
 import './Agendamento.css'
 import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 
 const Agendamento = () => {
@@ -28,7 +28,7 @@ const Agendamento = () => {
   useEffect(() => {
     const getData = async () => {
       const arr = [];
-      await Api.get("/instituicoes",).then((res) => {
+      await axios.get("/instituicoes",).then((res) => {
           let result = res.data;
           result.map((instituicao) => {
             return arr.push({value: instituicao.id, label: instituicao.nome});
@@ -55,13 +55,13 @@ const Agendamento = () => {
       "idUsuario": idUsuario()
     }
 
-    Api.post('/agendamentos', payload)
+    axios.post('/agendamentos', payload)
     .then(function (resp) {
       alert(resp.data);
     }).catch( function(resp){
       alert(resp.data)})
   }
-      if(role === 'usuario'){
+      if(role === 'USUARIO'){
         return (
         <>
         <Menu />

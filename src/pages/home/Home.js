@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-//import { Api } from '../../config/Api';
 import { validaRole } from '../../config/verificaRole'
 import Menu from '../../components/Menu';
 import { IconContext } from "react-icons";
@@ -8,7 +7,6 @@ import { Input, Button } from 'rsuite';
 import { WhatsappIcon, WhatsappShareButton, TwitterIcon, TwitterShareButton } from "react-share";
 import './Home.css'
 import axios from "axios";
-require('dotenv').config();
 
 const Home = () => {
   const role = validaRole()
@@ -140,7 +138,7 @@ const Home = () => {
       </>
     );
   }
-  
+
 }
 
 export default Home

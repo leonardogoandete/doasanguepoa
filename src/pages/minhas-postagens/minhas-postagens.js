@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-//import { Api } from '../../config/Api';
 import { validaRole } from '../../config/verificaRole';
 import Menu from '../../components/Menu';
 import { IconContext } from 'react-icons';
 import './minhas-postagens.css';
 import axios from "axios";
-require('dotenv').config();
 
 const MinhasPostagens = () => {
   const role = validaRole();
