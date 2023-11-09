@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { padronizaData } from '../../config/configuraData';
-import Menu from '../../components/Menu';
 import { validaRole } from '../../config/verificaRole'
 import { history } from '../../history'
 import { SelectPicker, Calendar, Button, CustomProvider } from 'rsuite';
@@ -64,7 +63,6 @@ const Agendamento = () => {
       if(role === 'USUARIO'){
         return (
         <>
-        <Menu />
         <CustomProvider locale={pt_BR}>
         <div className="agendamento">
           <h1>Agendamento</h1>

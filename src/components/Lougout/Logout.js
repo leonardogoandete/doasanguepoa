@@ -2,7 +2,8 @@ import { history } from '../../history'
 
 const Logout = () => {  
         localStorage.setItem('u', {"token":null});
-        history.push('/') 
+        history.push('/');
+        window.location.reload();
     }
 
 export default Logout

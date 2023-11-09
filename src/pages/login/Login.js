@@ -26,7 +26,8 @@ const Login = () => {
                 const { data } = resp
                 if (data && resp.status === 200) {
                     localStorage.setItem('u', data.token)
-                    history.push('/home')
+                    history.push('/home');
+                    window.location.reload();
                 }
             }).catch(error => {
                 console.error('Erro na solicitação POST:', error);

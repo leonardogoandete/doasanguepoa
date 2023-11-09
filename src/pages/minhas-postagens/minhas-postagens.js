@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { validaRole } from '../../config/verificaRole';
-import Menu from '../../components/Menu';
 import { IconContext } from 'react-icons';
 import './minhas-postagens.css';
 import axios from "axios";
@@ -38,7 +37,6 @@ const MinhasPostagens = () => {
   if (role === 'INSTITUICAO') {
     return (
       <div>
-        <Menu />
         <div className="format">
           <div className="posts">
             <h2 className="post-title">{post.titulo}</h2>

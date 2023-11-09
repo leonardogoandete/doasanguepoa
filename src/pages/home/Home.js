@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { validaRole } from '../../config/verificaRole'
-import Menu from '../../components/Menu';
+// import Menu from '../../components/Menu';
 import { IconContext } from "react-icons";
 import jwt_decode from "jwt-decode";
 import { Input, Button } from 'rsuite';
@@ -45,7 +45,7 @@ const Home = () => {
   if(role === 'INSTITUICAO'){
     return (
       <div>
-        <Menu />
+        {/*<Menu />*/}
         <div className="format">
         <div>
           <Input as="textarea" onChange={setMensagem} className="formPostagem" rows={3} style={{ width: 400, marginLeft: 120}} placeholder="Insira a mensagem..." />
@@ -94,7 +94,7 @@ const Home = () => {
     return (
       <>
       <div>
-        <Menu />
+        {/*<Menu />*/}
         <div className="publicacao">
         <div className="format">
           <div className="posts">

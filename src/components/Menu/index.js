@@ -47,12 +47,6 @@ const Menu = () => {
           <>
               <Navbar>
                   <Navbar.Brand href="#">DoaSangue</Navbar.Brand>
-                  <Nav >
-                      <Nav.Item href="/home" icon={<HomeIcon />}>Inicio</Nav.Item>
-                  </Nav>
-                  <Nav pullRight>
-                      <Nav.Item icon={<ExitIcon />} onClick={Logout}>Sair</Nav.Item>
-                  </Nav>
               </Navbar>
           </>
         );
