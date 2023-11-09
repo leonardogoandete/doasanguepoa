@@ -1,7 +1,5 @@
 import React from 'react'
-//import { Api } from '../../config/Api';
 import axios from "axios";
-require('dotenv').config();
 
 const Feed = () => {
     
