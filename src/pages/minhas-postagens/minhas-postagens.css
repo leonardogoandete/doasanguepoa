@@ -22,7 +22,9 @@ h4{
     margin-top: 10px;
     width: 40px;
 }
-
+.title{
+    font-size: x-large;
+}
 .format{
     padding-top: 10px;
     border-radius: 10px;
@@ -116,7 +118,13 @@ hr{
   float: right;
   margin-top: 30px;
 }
+.post-buttons{
+    width: 580px;
 
+    margin-top: 0px;
+
+    margin-left: 70%;
+}
 .compartilharSocial{
     float: right
 }

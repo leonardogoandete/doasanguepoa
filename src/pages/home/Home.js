@@ -67,6 +67,7 @@ const Home = () => {
                 <div>
                     <div className="format">
                         <div>
+                            <p className="post-title">Publicar Nova Postagem:</p>
                             <Input as="textarea" onChange={setMensagem} className="formPostagem" rows={3}
                                    style={{width: 400, marginLeft: 120}} placeholder="Insira a mensagem..."/>
                             <Button appearance="primary" onClick={handleSubmit}
@@ -141,6 +142,7 @@ const Home = () => {
                     <div>
                         <div className="publicacao">
                             <div className="format">
+                                <p className="title" >Publicações</p>
                                 <div className="posts">
                                     <h2 className="post-title">{post.nomeInstituicao}</h2>
                                     {post.map((post) => {

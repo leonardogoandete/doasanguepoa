@@ -46,6 +46,7 @@ const MinhasPostagens = () => {
             return (
                 <div>
                     <div className="format">
+                        <p className="title" >Minhas Postagens</p>
                         <div className="posts">
                             <p>Erro ao obter postagens!</p>
                         </div>
@@ -56,6 +57,7 @@ const MinhasPostagens = () => {
             return (
                 <div>
                     <div className="format">
+                        <p className="title" >Minhas Postagens</p>
                         <div className="posts">
                             <p>Nenhuma postagem disponivel</p>
                         </div>
@@ -66,6 +68,7 @@ const MinhasPostagens = () => {
             return (
                 <div>
                     <div className="format">
+                        <p className="title" >Minhas Postagens</p>
                         <div className="posts">
                             <h2 className="post-title">{post.titulo}</h2>
                             {post.map((post) => {
