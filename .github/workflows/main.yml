@@ -24,11 +24,14 @@ jobs:
       - name: Runnin project
         run: npm run start &
 
-      - name: Run Cypress tests
-        run: npx cypress run --browser chrome --spec "cypress/e2e/firefox-teste-instituicao.cy.js"
+      - name: Run Cypress chrome
+        run: npx cypress run --browser chrome --spec "cypress/e2e/teste-instituicao.cy.js"
 
       - name: Run Cypress firefox
-        run: npx cypress run --browser firefox --spec "cypress/e2e/firefox-teste-instituicao.cy.js"
+        run: npx cypress run --browser firefox --spec "cypress/e2e/teste-instituicao.cy.js"
+
+      - name: Run Cypress edge
+        run: npx cypress run --browser edge --spec "cypress/e2e/teste-instituicao.cy.js"
 
       
 
@@ -50,5 +53,11 @@ jobs:
       - name: Runnin project
         run: npm run start &
 
-      - name: Run Cypress tests
-        run: npx cypress run --browser chrome --spec "cypress/e2e/firefox-teste-usuario.cy.js"
+      - name: Run Cypress chrome
+        run: npx cypress run --browser chrome --spec "cypress/e2e/teste-usuario.cy.js"
+
+      - name: Run Cypress firefox
+        run: npx cypress run --browser firefox --spec "cypress/e2e/teste-usuario.cy.js"
+
+      - name: Run Cypress edge
+        run: npx cypress run --browser edge --spec "cypress/e2e/teste-usuario.cy.js"
