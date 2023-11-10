@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  cypress-tests-chrome-instituicao:
+  tests-instituicao:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,6 +26,11 @@ jobs:
 
       - name: Run Cypress tests
         run: npx cypress run --browser chrome --spec "cypress/e2e/firefox-teste-instituicao.cy.js"
+
+      - name: Run Cypress firefox
+        run: npx cypress run --browser firefox --spec "cypress/e2e/firefox-teste-instituicao.cy.js"
+
+      
 
   cypress-tests-chrome-usuario:
     runs-on: ubuntu-latest
