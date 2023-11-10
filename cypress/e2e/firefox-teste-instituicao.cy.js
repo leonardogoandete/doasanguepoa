@@ -1,6 +1,6 @@
 describe('template spec', () => {
   /* ==== Test Created with Cypress Studio ==== */
-  it('teste-firefox', function () {
+  it('teste-instituicao', function () {
     /* ==== Generated with Cypress Studio ==== */
 
     cy.fixture('loginResponseInstituicao.json').then((loginResponse) => {

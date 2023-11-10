@@ -1,6 +1,6 @@
 describe('template spec', () => {
   /* ==== Test Created with Cypress Studio ==== */
-  it('teste-firefox', function () {
+  it('teste-usuario', function () {
     /* ==== Generated with Cypress Studio ==== */
     // Mockando a resposta da API de login usando cy.fixture
     cy.fixture('loginResponseUsuario.json').then((loginResponse) => {
