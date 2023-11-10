@@ -21,5 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Runnin project
+        run: npm run start
+
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --browser chrome
+
+      - name: Run Cypress tests
+        run: npx cypress run --browser firefox
