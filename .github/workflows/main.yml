@@ -1,19 +1,35 @@
-name: E2E on Chrome
+name: Test App
 
 on: [push]
 
 jobs:
-  install:
+  build:
+    timeout-minutes: 10
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v3
+    strategy:
+      matrix:
+        node-version: [18]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          project: ./src
-          browser: chrome
-          install: yarn install
-          start: yarn start
-          wait-on: "http://localhost:3000"
+          node-version: ${{ matrix.node-version }}
+
+      # - name: Run API in background
+      #   working-directory: packages/api
+      #   run: |
+      #     yarn install
+      #     yarn mock &
+      #   env:
+      #     PORT: 4000
+
+      - name: Run and test app
+        working-directory: .
+        run: |
+          npm install
+          npm start &
+          npx cypress run
