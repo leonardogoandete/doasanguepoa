@@ -1,27 +1,25 @@
-name: Test App
+name: Cypress Tests
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
-    timeout-minutes: 10
+  cypress-tests:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18]
-
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '18'
 
-      - name: Run and test app
-        working-directory: .
-        run: |
-          npm install
-          npm start &
-          npx cypress run
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npm run cypress:run
