@@ -32,7 +32,7 @@ jobs:
 
       
 
-  cypress-tests-chrome-usuario:
+  tests-usuario:
     runs-on: ubuntu-latest
 
     steps:
