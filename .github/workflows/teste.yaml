@@ -29,17 +29,20 @@ jobs:
           repository: leonardogoandete/postagens
           path: postagens
 
-      - name: Checkout front
-        uses: actions/checkout@v4.1.1
-        with:
-          repository: leonardogoandete/doasanguepoa
-          path: doasanguepoa-java
-
       - name: Run postagens
         run: |
           cd postagens
           ./mvnw compile quarkus:dev &
           cd ..
+
+      - name:
+        run: ls -la
+
+      - name: Checkout front
+        uses: actions/checkout@v4.1.1
+        with:
+          repository: leonardogoandete/doasanguepoa
+          path: doasanguepoa-java
 
       - name: Run doasanguepoa front
         run: |
