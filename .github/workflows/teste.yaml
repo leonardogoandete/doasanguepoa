@@ -53,7 +53,7 @@ jobs:
 
       - name: Echo running Post api
         run: |
-          docker -d run leogoandete/doasanguepoa-front:v1.2.0 
+          docker run -d leogoandete/doasanguepoa-front:v1.2.0 
 
       - name: Telnet
         run: |
