@@ -10,12 +10,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Variaveis de ambiente
         run: |
           export REACT_APP_URL_API_POSTAGENS=http://localhost:8081
+          export REACT_APP_URL_API_LOGIN=http://localhost:8082
           echo $REACT_APP_URL_API_POSTAGENS
+          echo $REACT_APP_URL_API_LOGIN
       - name: Set up JDK 17
         uses: actions/setup-java@v3.13.0
         with:
@@ -39,8 +40,17 @@ jobs:
           ./mvnw compile quarkus:dev &
           cd ..
 
-      - name:
-        run: ls -la
+      - name: Checkout login
+        uses: actions/checkout@v4.1.1
+        with:
+          repository: leonardogoandete/doasanguepoa-java
+          path: doasanguepoa-java
+
+      - name: Run login
+        run: |
+          cd doasanguepoa-java
+          ./mvnw compile quarkus:dev &
+          cd ..
 
       - name: Checkout front
         uses: actions/checkout@v4.1.1
@@ -59,10 +69,6 @@ jobs:
       - name: wait for services to start
         run: |
           sleep 20
-
-#      - name: Echo running Post api
-#        run: |
-#          docker run -d leogoandete/doasanguepoa-front:v1.2.0
 
       - name: Run Cypress
         run: |
