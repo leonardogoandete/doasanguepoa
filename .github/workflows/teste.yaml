@@ -57,7 +57,8 @@ jobs:
 
       - name: Telnet
         run: |
-          curl http://localhost:3000
+          docker inspect $(docker ps -a -q)
+        #  curl http://localhost:3000
 
 #      - name: Run Cypress
 #        run: |
