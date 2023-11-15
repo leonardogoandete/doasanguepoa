@@ -44,6 +44,7 @@ jobs:
       - name: Run doasanguepoa front
         run: |
           cd doasanguepoa
+          ls -la
           npm install
           npm run start &
           cd ..
