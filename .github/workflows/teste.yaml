@@ -41,6 +41,12 @@ jobs:
           ./mvnw compile quarkus:dev &
           cd ..
 
+      - name: Run postagens
+        run: |
+          cd postagens
+          ./mvnw compile quarkus:dev &
+          cd ..
+
 #      - name: Run Talk frontend
 #        run: |
 #          cd talk/front
@@ -53,14 +59,7 @@ jobs:
 
       - name: Echo running Post api
         run: |
-          docker run -d leogoandete/doasanguepoa-front:v1.2.0 
-
-      - name: Telnet
-        run: |
-          docker inspect $(docker ps -a -q)
-          curl -k http://172.17.0.2:8080
-          curl -k http://172.17.0.4:3000
-          
+          docker run -d leogoandete/doasanguepoa-front:v1.2.0       
 
 #      - name: Run Cypress
 #        run: |
