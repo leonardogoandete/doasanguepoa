@@ -42,33 +42,33 @@ const MinhasPostagens = () => {
     if (role === 'INSTITUICAO') {
         return (
             <div>
-                <div className="format">
-                    <p className="title">Minhas Postagens</p>
-                    <div className="posts">
+                <div class="format">
+                    <p class="title">Minhas Postagens</p>
+                    <div class="posts">
                         {error && <p>Ocorreu um erro ao obter postagens. Por favor, tente novamente mais tarde.</p>}
                         {!error && post.length === 0 && <p>Nenhuma postagem disponível</p>}
                         {post.length > 0 && (
                             <>
-                                <h2 className="post-title">{post[0].titulo}</h2>
+                                <h2 class="post-title">{post[0].titulo}</h2>
                                 {post.map((post) => (
-                                    <div className="post-card" key={post.id}>
+                                    <div class="post-card" key={post.id}>
                                         <h4>
                                             <IconContext.Provider>
                                                 <img src='https://api.dicebear.com/7.x/adventurer/svg?seed=auhs' alt='icone do perfil' />
                                             </IconContext.Provider>
                                         </h4>
                                         <h3>{post.nomeInstituicao}</h3>
-                                        <p className="post-body">{post.mensagem}</p>
+                                        <p class="post-body">{post.mensagem}</p>
                                         <br /><br />
-                                        <div className="post-buttons">
+                                        <div class="post-buttons">
                                             <button
-                                                className="edit-button"
+                                                class="edit-button"
                                                 onClick={() => handleEdit(post.id)}
                                             >
                                                 Editar
                                             </button>
                                             <button
-                                                className="delete-button"
+                                                class="delete-button"
                                                 onClick={() => handleDelete(post.id)}
                                             >
                                                 Excluir
@@ -86,9 +86,9 @@ const MinhasPostagens = () => {
         // Código para usuários que não são instituições
         return (
             <div>
-                <p className="title">Minhas Postagens</p>
-                <div className="format">
-                    <div className="posts">
+                <p class="title">Minhas Postagens</p>
+                <div class="format">
+                    <div class="posts">
                         <p>Desculpe, esta funcionalidade está disponível apenas para instituições.</p>
                     </div>
                 </div>

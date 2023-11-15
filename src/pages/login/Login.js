@@ -44,9 +44,9 @@ const Login = () => {
     return (
         <>
 
-            <div className="titulo">Login</div>
-            <div className="Container">
-            <div className="texto"><br />Preencha os campos para continuar!</div>
+            <div class="titulo">Login</div>
+            <div class="Container">
+            <div class="texto"><br />Preencha os campos para continuar!</div>
 
                 <Formik
                     initialValues={{
@@ -57,32 +57,32 @@ const Login = () => {
                     validationSchema={validations}
                 >
                     {({ isSubmitting }) => (
-                        <Form className="Login">
-                            <div className="Login-Group">
+                        <Form class="Login">
+                            <div class="Login-Group">
                                 <Field
                                     placeholder="Digite seu CPF ou CNPJ"
                                     name="documento"
-                                    className="Login-Field"
+                                    class="Login-Field"
                                 />
                             </div>
-                            <div className="Login-Group">
+                            <div class="Login-Group">
                                 <Field
                                     type="password"
                                     placeholder="Digite sua senha"
                                     name="senha"
-                                    className="Login-Field"
+                                    class="Login-Field"
                                 />
                             </div>
                             <button
-                                className="Login-Button"
+                                class="Login-Button"
                                 type="submit"
                                 disabled={isSubmitting} // Desabilita o botão durante a submissão
                             >
                                 Login
                             </button>
-                            <div className="register">
+                            <div class="register">
                                 Não tem conta?
-                                <Link className="linkReferencia" to="/cadastro/usuario">&nbsp;Registre-se</Link>
+                                <Link class="linkReferencia" to="/cadastro/usuario">&nbsp;Registre-se</Link>
                             </div>
                         </Form>
                     )}

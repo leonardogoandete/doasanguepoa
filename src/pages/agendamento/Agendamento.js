@@ -67,7 +67,7 @@ const Agendamento = () => {
         return (
         <>
         <CustomProvider locale={pt_BR}>
-        <div className="agendamento">
+        <div class="agendamento">
           <h1>Agendamento</h1>
           <div>
           <Calendar onChange={setData} compact bordered/>

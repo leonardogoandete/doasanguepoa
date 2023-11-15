@@ -8,7 +8,7 @@ import Menu from "../components/Menu";
 const App = () => (
     <>
         <Menu />
-        <main className="App">
+        <main class="App">
             <Routes/>
         </main>
     </>

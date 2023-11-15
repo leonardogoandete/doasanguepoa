@@ -85,14 +85,14 @@ const Home = () => {
         }
 
         return post.map((post) => (
-            <div className="post-card" key={post.id}>
+            <div class="post-card" key={post.id}>
                 <h4>
                     <IconContext.Provider>
                         <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=auhs" alt="icone do perfil" />
                     </IconContext.Provider>
                 </h4>
                 <h3>{post.titulo}</h3>
-                <p className="post-body">{post.mensagem}</p>
+                <p class="post-body">{post.mensagem}</p>
                 <br /><br />
                 <WhatsappShareButton
                     url={shareUrl}
@@ -122,10 +122,10 @@ const Home = () => {
     };
 
     return (
-        <div className="format">
+        <div class="format">
             {isInstituicao && (
                 <>
-                    <p className="post-title">Publicar Nova Postagem:</p>
+                    <p class="post-title">Publicar Nova Postagem:</p>
                     <Input
                         as="textarea"
                         value={mensagem}
@@ -144,7 +144,7 @@ const Home = () => {
                     </Button>
                 </>
             )}
-            <div className="posts">{renderPosts()}</div>
+            <div class="posts">{renderPosts()}</div>
         </div>
     );
 };

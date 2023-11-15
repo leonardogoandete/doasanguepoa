@@ -29,57 +29,57 @@ const Register = () => {
     })
     return (
         <>
-            <div className = "h1">
+            <div class = "h1">
             <h1>Cadastro</h1>
             </div>
-            <div className = "registrar">
+            <div class = "registrar">
             <p>Preencha os dados abaixo para cadastro!</p>
             <Formik
                 initialValues={{}}
                 onSubmit={handleSubmit}
                 validationSchema={validations}
             >
-                <Form className="Login">
-                    <div className="Login-Group">
+                <Form class="Login">
+                    <div class="Login-Group">
 
                         <Field
                             placeholder="Digite seu Nome Completo"
                             name="nome"
-                            className="campo"
+                            class="campo"
                         />
                     </div>
-                    <div className="Login-Group">
+                    <div class="Login-Group">
                         <Field
                             placeholder="Digite seu endereço"
                             name="endereco"
-                            className="campo"
+                            class="campo"
                         />
                     </div>
-                    <div className="Login-Group">
+                    <div class="Login-Group">
                         <Field
                             placeholder="Digite seu CPF/CNPJ"
                             name="cpf"
-                            className="campo"
+                            class="campo"
                         />
                     </div>
-                    <div className="Login-Group">
+                    <div class="Login-Group">
                         <Field
                             placeholder="Digite seu e-mail"
                             name="email"
-                            className="campo"
+                            class="campo"
                         />
                     </div>
-                    <div className="Login-Group">
+                    <div class="Login-Group">
                         <Field
                             placeholder="Digite sua senha"
                             type="password"
                             name="senha"
-                            className="campo"
+                            class="campo"
                         />
                     </div>
-                    <button className="Login-Btn" type="submit" onClick={handleSubmit}>Cadastrar</button>
-                    <div className = "register"> Já tem conta?
-                    <Link className="linkReferencia" to="/">&nbsp;Login</Link>
+                    <button class="Login-Btn" type="submit" onClick={handleSubmit}>Cadastrar</button>
+                    <div class = "register"> Já tem conta?
+                    <Link class="linkReferencia" to="/">&nbsp;Login</Link>
                     </div>
                 </Form>
             </Formik>
