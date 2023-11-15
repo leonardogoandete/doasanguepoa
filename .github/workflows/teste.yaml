@@ -12,6 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Variaveis de ambiente
+        run: |
+          export REACT_APP_URL_API_POSTAGENS=http://localhost:8081
+          echo $REACT_APP_URL_API_POSTAGENS
       - name: Set up JDK 17
         uses: actions/setup-java@v3.13.0
         with:
