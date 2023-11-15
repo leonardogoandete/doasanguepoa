@@ -28,7 +28,6 @@ jobs:
         with:
           repository: leonardogoandete/postagens
           path: postagens
-          ref: 'dev'
 
 #      - name: Checkout Talk
 #        uses: actions/checkout@v4.1.1
