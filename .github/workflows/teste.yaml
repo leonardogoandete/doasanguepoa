@@ -18,9 +18,6 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
-      - name: Setup Quarkus
-        run: ./mvnw compile quarkus:dev
-
       - name: Set up Nodejs
         uses: actions/setup-node@v4
         with:
