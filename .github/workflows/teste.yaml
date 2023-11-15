@@ -42,7 +42,7 @@ jobs:
         uses: actions/checkout@v4.1.1
         with:
           repository: leonardogoandete/doasanguepoa
-          path: doasanguepoa-java
+          path: doasanguepoa
 
       - name: Run doasanguepoa front
         run: |
