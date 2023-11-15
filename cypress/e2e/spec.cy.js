@@ -44,7 +44,6 @@ describe('template spec', () => {
     cy.get(':nth-child(2) > .Login-Field').clear('le');
     cy.get(':nth-child(2) > .Login-Field').type('leonardo');
     cy.get('.Login-Button').click();
-    cy.get('.rs-navbar-right > .rs-navbar-item',{ timeout: 10000 }).click();
     cy.get(':nth-child(1) > .Login-Field').clear('8702051700012');
     cy.get(':nth-child(1) > .Login-Field').type('87020517000120');
     cy.get(':nth-child(2) > .Login-Field').clear('c');
