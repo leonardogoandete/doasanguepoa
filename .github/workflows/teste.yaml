@@ -29,23 +29,18 @@ jobs:
           repository: leonardogoandete/postagens
           path: postagens
 
-#      - name: Checkout Talk
-#        uses: actions/checkout@v4.1.1
-#        with:
-#          repository: orion-services/talk
-#          path: talk
+      - name: Checkout postagens
+        uses: actions/checkout@v4.1.1
+        with:
+          repository: leonardogoandete/doasanguepoa-java
+          path: doasanguepoa-java
 
-      - name: Run Postagens
+      - name: Run doasanguepoa-java
         run: |
-          cd postagens
-          ./mvnw compile quarkus:dev -X &
-#          cd ..
+          cd doasanguepoa-java
+          ./mvnw compile quarkus:dev &
+          cd ..
 
-#      - name: Run Talk
-#        run: |
-#          cd talk
-#          ./mvnw compile quarkus:dev &
-#          cd ..
 #      - name: Run Talk frontend
 #        run: |
 #          cd talk/front
@@ -58,7 +53,7 @@ jobs:
 
       - name: Echo running Post api
         run: |
-          curl http://0.0.0.0:8081/q/health
+          docker run leogoandete/doasanguepoa
 
 #      - name: Run Cypress
 #        run: |
