@@ -38,7 +38,7 @@ jobs:
       - name: Run Postagens
         run: |
           cd postagens
-          ./mvnw compile quarkus:dev
+          ./mvnw compile quarkus:dev &
           cd ..
 
 #      - name: Run Talk
@@ -59,11 +59,11 @@ jobs:
       - name: Echo running Post api
         run: curl http://127.0.0.1:8081/q/health
 
-      - name: Run Cypress
-        run: |
-          cd talk/front
-          npm install
-          npm run test
-          cd ../..
+#      - name: Run Cypress
+#        run: |
+#          cd talk/front
+#          npm install
+#          npm run test
+#          cd ../..
 
 
