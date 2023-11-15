@@ -8,7 +8,6 @@ describe('template spec', () => {
     cy.get(':nth-child(2) > .Login-Field').clear('le');
     cy.get(':nth-child(2) > .Login-Field').type('leonardo');
     cy.get('.Login-Button').click();
-    cy.get('[href="/home"]').click();
     cy.get('.rs-navbar-right > .rs-navbar-item > .rs-navbar-item-icon').click();
     cy.get(':nth-child(1) > .Login-Field').click();
     cy.get(':nth-child(1) > .Login-Field').click();
