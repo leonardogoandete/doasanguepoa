@@ -58,7 +58,7 @@ jobs:
 
       - name: Echo running Post api
         run: |
-          telnet localhost 8081
+          curl http://localhost:8081/q/health
 
 #      - name: Run Cypress
 #        run: |
