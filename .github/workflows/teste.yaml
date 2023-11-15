@@ -46,7 +46,7 @@ jobs:
           cd doasanguepoa
           npm install
           npm run start &
-          cd ../..
+          cd ..
 
       - name: wait for services to start
         run: |
