@@ -32,7 +32,7 @@ jobs:
       - name: Checkout front
         uses: actions/checkout@v4.1.1
         with:
-          repository: leonardogoandete/doasanguepoa-java
+          repository: leonardogoandete/doasanguepoa
           path: doasanguepoa-java
 
       - name: Run postagens
@@ -41,15 +41,13 @@ jobs:
           ./mvnw compile quarkus:dev &
           cd ..
 
-#      - name: Run Talk frontend
-#        run: |
-#          cd talk/front
-#          npm install
-#          npm run dev &
-#          cd ../..
-      - name:
+      - name: Run doasanguepoa front
         run: |
-          curl http://localhost:8081/q/metrics
+          cd doasanguepoa
+          npm install
+          npm run start &
+          cd ../..
+
       - name: wait for services to start
         run: |
           sleep 20
