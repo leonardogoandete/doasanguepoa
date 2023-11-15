@@ -25,7 +25,7 @@ describe('template spec', () => {
     cy.get(':nth-child(2) > .Login-Field').clear('c');
     cy.get(':nth-child(2) > .Login-Field').type('clinicas{enter}');
     //cy.get('.Login-Button').click();
-    cy.get('.formPostagem').click();
+    cy.get('.formPostagem').click().type('Teste de postagem cypress');
     //cy.get('.rs-btn').click();
     cy.get('[href="/minhas-postagens"]').click();
     cy.get('[href="/home"]').click();
@@ -50,7 +50,7 @@ describe('template spec', () => {
     cy.get(':nth-child(2) > .Login-Field').clear('c');
     cy.get(':nth-child(2) > .Login-Field').type('clinicas');
     cy.get('.Login-Button').click();
-    cy.get('.formPostagem').click();
+    cy.get('.formPostagem').click().type('Teste de postagem cypress');
     cy.get('.rs-btn').click();
     cy.get('[href="/minhas-postagens"]').click();
     cy.get(':nth-child(17) > .post-buttons > .delete-button').click();
