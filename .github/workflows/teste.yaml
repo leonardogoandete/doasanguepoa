@@ -64,11 +64,7 @@ jobs:
 #        run: |
 #          docker run -d leogoandete/doasanguepoa-front:v1.2.0
 
-#      - name: Run Cypress
-#        run: |
-#          cd talk/front
-#          npm install
-#          npm run test
-#          cd ../..
-
-
+      - name: Run Cypress
+        run: |
+          cd doasanguepoa
+          npx cypress run
