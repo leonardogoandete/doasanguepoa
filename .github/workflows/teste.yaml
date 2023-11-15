@@ -23,11 +23,6 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install qurkus
-        run: |
-          curl -Ls https://sh.jbang.dev | bash -s - trust add https://repo1.maven.org/maven2/io/quarkus/quarkus-cli/ |
-          curl -Ls https://sh.jbang.dev | bash -s - app install --fresh --force quarkus@quarkusio
-
       - name: Checkout postagens
         uses: actions/checkout@v4.1.1
         with:
@@ -43,7 +38,7 @@ jobs:
       - name: Run Postagens
         run: |
           cd postagens
-          quarkus:dev &
+          ./mvnw compile quarkus:dev &
 #          cd ..
 
 #      - name: Run Talk
@@ -62,7 +57,8 @@ jobs:
           sleep 20
 
       - name: Echo running Post api
-        run: ifconfig
+        run: |
+          telnet localhost 8081
 
 #      - name: Run Cypress
 #        run: |
