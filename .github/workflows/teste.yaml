@@ -1,0 +1,71 @@
+name: Frontend
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3.13.0
+        with:
+          java-version: '17'
+          distribution: 'corretto'
+
+      - name: Setup Quarkus
+        run: ./mvnw compile quarkus:dev
+
+      - name: Set up Nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Checkout postagens
+        uses: actions/checkout@v4.1.1
+        with:
+          repository: leogoandete/postagens
+          path: postagens
+          ref: 'v1.1.0'
+
+#      - name: Checkout Talk
+#        uses: actions/checkout@v4.1.1
+#        with:
+#          repository: orion-services/talk
+#          path: talk
+
+      - name: Run Postagens
+        run: |
+          cd postagens
+          ./mvnw compile quarkus:dev &
+          cd ..
+
+      - name: Run Talk
+        run: |
+          cd talk
+          ./mvnw compile quarkus:dev &
+          cd ..
+      - name: Run Talk frontend
+        run: |
+          cd talk/front
+          npm install
+          npm run dev &
+          cd ../..
+
+      - name: wait for services to start
+        run: |
+          sleep 20
+
+      - name: Run Cypress
+        run: |
+          cd talk/front
+          npm install
+          npm run test
+          cd ../..
+
+
