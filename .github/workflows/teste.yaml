@@ -43,7 +43,7 @@ jobs:
       - name: Run Postagens
         run: |
           cd postagens
-          ./mvnw compile quarkus:dev &
+          quarkus:dev &
 #          cd ..
 
 #      - name: Run Talk
