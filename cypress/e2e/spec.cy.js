@@ -12,7 +12,7 @@ describe('template spec', () => {
     cy.get(':nth-child(2) > .Login-Field').clear('le');
     cy.get(':nth-child(2) > .Login-Field').type('leonardo{enter}');
     //cy.get('.Login-Button').click();
-    cy.get('.rs-navbar-right > .rs-navbar-item').click();
+    //cy.get('.rs-navbar-right > .rs-navbar-item').click();
     /* ==== End Cypress Studio ==== */
   });
 
@@ -25,7 +25,7 @@ describe('template spec', () => {
     cy.get(':nth-child(2) > .Login-Field').clear('c');
     cy.get(':nth-child(2) > .Login-Field').type('clinicas{enter}');
     //cy.get('.Login-Button').click();
-    cy.get('.formPostagem').click();
+    //cy.get('.formPostagem').click();
     cy.get('.rs-btn').click();
     cy.get('[href="/minhas-postagens"]').click();
     cy.get(':nth-child(13) > .post-buttons > .delete-button').click();
