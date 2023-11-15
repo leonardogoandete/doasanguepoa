@@ -52,7 +52,6 @@ jobs:
 #          npm install
 #          npm run dev &
 #          cd ../..
-
       - name: wait for services to start
         run: |
           sleep 20
