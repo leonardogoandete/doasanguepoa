@@ -59,6 +59,8 @@ jobs:
         run: |
           docker inspect $(docker ps -a -q)
           curl http://172.17.0.2:8080
+          curl http://172.17.0.4:3000
+          
 
 #      - name: Run Cypress
 #        run: |
