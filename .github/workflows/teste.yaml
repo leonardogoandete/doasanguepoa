@@ -57,7 +57,7 @@ jobs:
           sleep 20
 
       - name: Echo running Post api
-        run: curl 0.0.0.0:8081/q/metrics
+        run: ifconfig
 
 #      - name: Run Cypress
 #        run: |
