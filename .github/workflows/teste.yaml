@@ -28,7 +28,7 @@ jobs:
         with:
           repository: leonardogoandete/postagens
           path: postagens
-          ref: 'v1.1.0'
+          ref: 'dev'
 
 #      - name: Checkout Talk
 #        uses: actions/checkout@v4.1.1
@@ -42,17 +42,20 @@ jobs:
           ./mvnw compile quarkus:dev &
           cd ..
 
-      - name: Run Talk
-        run: |
-          cd talk
-          ./mvnw compile quarkus:dev &
-          cd ..
-      - name: Run Talk frontend
-        run: |
-          cd talk/front
-          npm install
-          npm run dev &
-          cd ../..
+      - name: Echo running Post api
+        run: curl http://localhost:8081/q/health
+
+#      - name: Run Talk
+#        run: |
+#          cd talk
+#          ./mvnw compile quarkus:dev &
+#          cd ..
+#      - name: Run Talk frontend
+#        run: |
+#          cd talk/front
+#          npm install
+#          npm run dev &
+#          cd ../..
 
       - name: wait for services to start
         run: |
