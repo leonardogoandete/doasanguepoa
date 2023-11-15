@@ -1,5 +1,4 @@
 describe('template spec', () => {
-  /* ==== Test Created with Cypress Studio ==== */
   it('teste-usuario', function() {
     /* ==== Generated with Cypress Studio ==== */
     cy.visit('http://localhost:3000');
@@ -7,9 +6,8 @@ describe('template spec', () => {
     cy.get(':nth-child(1) > .Login-Field').type('12345678912');
     cy.get(':nth-child(2) > .Login-Field').clear('le');
     cy.get(':nth-child(2) > .Login-Field').type('leonardo{enter}');
-    //cy.get('.Login-Button').click();
-    //cy.get('.rs-navbar-right > .rs-navbar-item').click();
-    /* ==== End Cypress Studio ==== */
+    cy.get('.Login-Button').click();
+    cy.get('.rs-navbar-right > .rs-navbar-item').click();
   });
 
   /* ==== Test Created with Cypress Studio ==== */
@@ -51,6 +49,5 @@ describe('template spec', () => {
     cy.get('[href="/minhas-postagens"]').click();
     cy.get('[href="/home"]').click();
     cy.get('.rs-navbar-right > .rs-navbar-item').click();
-    /* ==== End Cypress Studio ==== */
   });
 })
