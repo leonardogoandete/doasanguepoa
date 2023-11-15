@@ -53,7 +53,7 @@ jobs:
 
       - name: Echo running Post api
         run: |
-          docker run leogoandete/doasanguepoa
+          docker run leogoandete/doasanguepoa-front:v1.2.0
 
 #      - name: Run Cypress
 #        run: |
