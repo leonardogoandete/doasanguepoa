@@ -29,17 +29,11 @@ jobs:
           repository: leonardogoandete/postagens
           path: postagens
 
-      - name: Checkout postagens
+      - name: Checkout front
         uses: actions/checkout@v4.1.1
         with:
           repository: leonardogoandete/doasanguepoa-java
           path: doasanguepoa-java
-
-      - name: Run doasanguepoa-java
-        run: |
-          cd doasanguepoa-java
-          ./mvnw compile quarkus:dev &
-          cd ..
 
       - name: Run postagens
         run: |
@@ -53,13 +47,16 @@ jobs:
 #          npm install
 #          npm run dev &
 #          cd ../..
+      - name:
+        run: |
+          curl http://localhost:8081/q/metrics
       - name: wait for services to start
         run: |
           sleep 20
 
-      - name: Echo running Post api
-        run: |
-          docker run -d leogoandete/doasanguepoa-front:v1.2.0       
+#      - name: Echo running Post api
+#        run: |
+#          docker run -d leogoandete/doasanguepoa-front:v1.2.0
 
 #      - name: Run Cypress
 #        run: |
