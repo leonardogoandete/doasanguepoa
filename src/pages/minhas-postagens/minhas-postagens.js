@@ -35,6 +35,7 @@ const MinhasPostagens = () => {
             { headers: { Authorization: `Bearer ${localStorage.getItem('u')}` } }
         ).then(() => {
             alert("Postagem excluída");
+            fetchPostagens();
         });
         console.log(`Excluir postagem ${postId}`);
     };
