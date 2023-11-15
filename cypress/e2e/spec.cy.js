@@ -53,7 +53,6 @@ describe('template spec', () => {
     cy.get('.formPostagem').click().type('Teste de postagem cypress');
     cy.get('.rs-btn').click();
     cy.get('[href="/minhas-postagens"]').click();
-    cy.get(':nth-child(17) > .post-buttons > .delete-button').click();
     cy.get('[href="/home"]').click();
     cy.get('.rs-navbar-right > .rs-navbar-item').click();
     /* ==== End Cypress Studio ==== */

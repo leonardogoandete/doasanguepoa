@@ -10,7 +10,6 @@ import {
 } from 'react-share';
 import './Home.css';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';  // Importe o hook useLocation
 import { validaRole } from "../../config/verificaRole";
 
 const Home = () => {
@@ -19,7 +18,6 @@ const Home = () => {
     const [post, setPost] = useState([]);
     const [mensagem, setMensagem] = useState('');
     const [error, setError] = useState(null);
-    const location = useLocation();  // Utilize o hook useLocation para obter a localização da rota
 
     useEffect(() => {
         const fetchPostagens = async () => {
@@ -38,15 +36,6 @@ const Home = () => {
     }, []);
 
     const isInstituicao = role === 'INSTITUICAO';
-    const isMinhasPostagensPage = location.pathname === '/minhas-postagens';  // Lógica para verificar se está na página "minhas-postagens"
-
-    const handleEditPost = (postId) => {
-        // Lógica para edição de postagem
-    };
-
-    const handleDeletePost = (postId) => {
-        // Lógica para exclusão de postagem
-    };
 
     const handleSubmit = async () => {
         try {
@@ -111,12 +100,6 @@ const Home = () => {
                     <TwitterIcon size={32} round />
                 </TwitterShareButton>
                 <hr />
-                {isInstituicao && isMinhasPostagensPage && (
-                    <>
-                        <Button onClick={() => handleEditPost(post.id)}>Editar</Button>
-                        <Button onClick={() => handleDeletePost(post.id)}>Excluir</Button>
-                    </>
-                )}
             </div>
         ));
     };
