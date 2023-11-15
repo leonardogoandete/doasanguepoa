@@ -58,7 +58,7 @@ jobs:
 
       - name: Echo running Post api
         run: |
-          curl http://localhost:8081/q/health
+          curl http://0.0.0.0:8081/q/health
 
 #      - name: Run Cypress
 #        run: |
