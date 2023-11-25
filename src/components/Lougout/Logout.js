@@ -1,7 +1,7 @@
 import { history } from '../../history'
 
-const Logout = () => {  
-        localStorage.setItem('u', {"token":null});
+const Logout = () => {
+        localStorage.removeItem('u');
         history.push('/');
         window.location.reload();
     }
