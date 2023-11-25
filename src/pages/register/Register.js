@@ -11,19 +11,43 @@ import axios from "axios";
 
 const Register = () => {
     const handleSubmit = values => {
-        axios.post(process.env.REACT_APP_URL_API_CADASTRO+'/usuarios', values)
-            .then(resp => {
-                const { data } = resp
-                if (data) {
-                    history.push('/')
+        console.log(values)
+        if (values.documento.length === 11) {
+            axios.post(process.env.REACT_APP_URL_API_CADASTRO + '/registrar/usuario', values)
+                .then(resp => {
+                    const {data} = resp
+                    if (data) {
+                        history.push('/')
+                        window.location.reload();
+                    }
+                }).catch(error => {
+                    console.error('Erro na solicitação POST:', error);
+                    alert("Erro ao cadastrar-se!");
+                    window.location.reload();
                 }
-            })
+            );
+        }
+        if (values.documento.length === 14) {
+                axios.post(process.env.REACT_APP_URL_API_CADASTRO+'/registrar/instituicao', values)
+                    .then(resp => {
+                    const { data } = resp
+                        if (data) {
+                            history.push('/')
+                            window.location.reload();
+                        }
+                    }).catch(error => {
+                        console.error('Erro na solicitação POST:', error);
+                        alert("Erro ao cadastrar-se!");
+                        window.location.reload();
+                    }
+                );
+        }
     }
 
     const validations = yup.object().shape({
         nome: yup.string().min(3).required('Informe o nome'),
         endereco: yup.string().min(3).required('Informe o endereco'),
-        cpf: yup.string().min(11).required('Informe o CPF'),
+        documento: yup.string().min(11).required('Informe o documento'),
         email: yup.string().email().required("Informe o email"),
         senha: yup.string().min(8,'Digite no minimo 8 caracteres').required('Informe a senha'),
     })
@@ -58,7 +82,7 @@ const Register = () => {
                     <div className="Login-Group">
                         <Field
                             placeholder="Digite seu CPF/CNPJ"
-                            name="cpf"
+                            name="documento"
                             className="campo"
                         />
                     </div>

@@ -47,6 +47,9 @@ const Menu = () => {
           <>
               <Navbar>
                   <Navbar.Brand href="#">DoaSangue</Navbar.Brand>
+                  <Nav pullRight>
+                      <Nav.Item icon={<ExitIcon />} onClick={Logout}>Sair</Nav.Item>
+                  </Nav>
               </Navbar>
           </>
         );

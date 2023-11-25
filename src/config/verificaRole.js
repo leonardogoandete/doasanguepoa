@@ -1,7 +1,7 @@
 import jwt_decode from "jwt-decode";
 
 export const validaRole = () => {
-    const token = localStorage.getItem('u'); // Pega o token do Local Storage
+    const token = localStorage.getItem('token'); // Pega o token do Local Storage
 
     if (token) {
         try {
