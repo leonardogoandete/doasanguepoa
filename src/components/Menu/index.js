@@ -15,19 +15,24 @@ const Menu = () => {
             <Navbar>
                 <Navbar.Brand href="#">DoaSangue</Navbar.Brand>
                 <Nav>
-                    <Nav.Item href="/home" icon={<HomeIcon />}>Inicio</Nav.Item>
                     {role === 'INSTITUICAO' && (
                         <>
+                            <Nav.Item href="/home" icon={<HomeIcon />}>Inicio</Nav.Item>
                             <Nav.Item href="/minhas-postagens" icon={<HomeIcon />}>Minhas postagens</Nav.Item>
                         </>
                     )}
                     {role === 'USUARIO' && (
-                        <Nav.Item href="/agendamento" icon={<CalendarIcon />}>Agendamento</Nav.Item>
+                        <>
+                            <Nav.Item href="/home" icon={<HomeIcon />}>Inicio</Nav.Item>
+                            <Nav.Item href="/agendamento" icon={<CalendarIcon />}>Agendamento</Nav.Item>
+                        </>
                     )}
                 </Nav>
-                <Nav pullRight>
-                    <Nav.Item icon={<ExitIcon />} onClick={Logout}>Sair</Nav.Item>
-                </Nav>
+                {(role === 'INSTITUICAO' || role === 'USUARIO') && (
+                    <Nav pullRight>
+                        <Nav.Item icon={<ExitIcon />} onClick={Logout}>Sair</Nav.Item>
+                    </Nav>
+                )}
             </Navbar>
         </>
     );
