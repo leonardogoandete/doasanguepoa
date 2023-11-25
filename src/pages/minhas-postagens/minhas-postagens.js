@@ -9,38 +9,21 @@ const MinhasPostagens = () => {
     const [post, setPost] = useState([]);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchPostagens = async () => {
-            try {
-                const response = await axios.get(
-                    `${process.env.REACT_APP_URL_API_POSTAGENS}/postagens/instituicao`,
-                    { headers: { Authorization: `Bearer ${localStorage.getItem('u')}` } }
-                );
-                setPost(response.data);
-            } catch (error) {
-                setError(error);
-            }
-        };
+    const fetchPostagens = async () => {
+        try {
+            const response = await axios.get(
+                `${process.env.REACT_APP_URL_API_POSTAGENS}/postagens/instituicao`,
+                { headers: { Authorization: `Bearer ${localStorage.getItem('u')}` } }
+            );
+            setPost(response.data);
+        } catch (error) {
+            setError(error);
+        }
+    };
 
+    useEffect(() => {
         fetchPostagens();
     }, []);
-
-    useEffect(() => {
-        const fetchPostagens = async () => {
-            try {
-                const response = await axios.get(
-                    `${process.env.REACT_APP_URL_API_POSTAGENS}/postagens/instituicao`,
-                    { headers: { Authorization: `Bearer ${localStorage.getItem('u')}` } }
-                );
-                setPost(response.data);
-            } catch (error) {
-                setError(error);
-            }
-        };
-
-        // Chame a função novamente para atualizar a lista de postagens
-        fetchPostagens();
-    }, [post]); // Adicione a dependência 'post' para este useEffect
 
     const handleEdit = (postId) => {
         console.log(`Editar postagem ${postId}`);
@@ -58,7 +41,6 @@ const MinhasPostagens = () => {
 
     if (role === 'INSTITUICAO') {
         return (
-
             <div>
                 <div className="format">
                     <p className="title">Minhas Postagens</p>
@@ -72,12 +54,10 @@ const MinhasPostagens = () => {
                                     <div className="post-card" key={post.id}>
                                         <h4>
                                             <IconContext.Provider>
-                                                <img src='https://api.dicebear.com/7.x/adventurer/svg?seed=auhs'
-                                                     alt='icone do perfil' />
+                                                <img src='https://api.dicebear.com/7.x/adventurer/svg?seed=auhs' alt='icone do perfil' />
                                             </IconContext.Provider>
                                         </h4>
-                                        <h3>
-                                            {post.nomeInstituicao}</h3>
+                                        <h3>{post.nomeInstituicao}</h3>
                                         <p className="post-body">{post.mensagem}</p>
                                         <br /><br />
                                         <div className="post-buttons">

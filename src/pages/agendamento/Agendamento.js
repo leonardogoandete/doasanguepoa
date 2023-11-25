@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { useState, useEffect } from 'react'
 import { padronizaData } from '../../config/configuraData';
 import { validaRole } from '../../config/verificaRole'
@@ -18,25 +19,27 @@ const Agendamento = () => {
     item => ({ label: item, value: item })
   );
   // função para pegar as instituicoes
+  // eslint-disable-next-line
   const [instituicao, setInstituicao] = useState([""]);
   //pega a data escolhida
   const [data, setData] = useState([""]);
   const [hora, setHora] = useState([""]);
   const [defineInstituto, setDefineInstituto] = useState([""]);
 
-  useEffect(() => {
-    const getData = async () => {
-      const arr = [];
-      await axios.get("/instituicoes",).then((res) => {
-          let result = res.data;
-          result.map((instituicao) => {
-            return arr.push({value: instituicao.id, label: instituicao.nome});
-        });
-        setInstituicao(arr)
-      });
-    };
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const arr = [];
+  //     await axios.get("/instituicoes",).then((res) => {
+  //         let result = res.data;
+  //         result.map((instituicao) => {
+  //           return arr.push({value: instituicao.id, label: instituicao.nome});
+  //       });
+  //       setInstituicao(arr)
+  //     }
+  //     );
+  //   };
+  //   getData();
+  // }, []);
 
   const idUsuario = () => {
     const token = localStorage.getItem('u'); //pega do local storage o token
