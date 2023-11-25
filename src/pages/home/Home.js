@@ -10,7 +10,7 @@ import {
 } from 'react-share';
 import './Home.css';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';  // Importe o hook useLocation
+import { useLocation } from 'react-router-dom';
 import { validaRole } from "../../config/verificaRole";
 
 const Home = () => {
@@ -19,7 +19,7 @@ const Home = () => {
     const [post, setPost] = useState([]);
     const [mensagem, setMensagem] = useState('');
     const [error, setError] = useState(null);
-    const location = useLocation();  // Utilize o hook useLocation para obter a localização da rota
+    const location = useLocation();
 
     useEffect(() => {
         const fetchPostagens = async () => {
@@ -38,13 +38,13 @@ const Home = () => {
     }, []);
 
     const isInstituicao = role === 'INSTITUICAO';
-    const isMinhasPostagensPage = location.pathname === '/minhas-postagens';  // Lógica para verificar se está na página "minhas-postagens"
+    const isMinhasPostagensPage = location.pathname === '/minhas-postagens';
 
     const handleEditPost = (postId) => {
         // Lógica para edição de postagem
     };
 
-    const handleDeletePost = (postId) => {
+    const handleDeletePost = async (postId) => {
         // Lógica para exclusão de postagem
     };
 
@@ -55,10 +55,7 @@ const Home = () => {
 
             await axios.post(
                 `${process.env.REACT_APP_URL_API_POSTAGENS}/postagens`,
-                {
-                    mensagem,
-                    cnpj: decoded['upn'],
-                },
+                { mensagem, cnpj: decoded['upn'] },
                 { headers: { Authorization: `Bearer ${localStorage.getItem('u')}` } }
             );
 
@@ -121,29 +118,31 @@ const Home = () => {
         ));
     };
 
+    const renderInstituicaoForm = () => (
+        <>
+            <p className="post-title">Publicar Nova Postagem:</p>
+            <Input
+                as="textarea"
+                value={mensagem}
+                onChange={(value) => setMensagem(value)}
+                className="formPostagem"
+                rows={3}
+                style={{ width: 400, marginLeft: 120 }}
+                placeholder="Insira a mensagem..."
+            />
+            <Button
+                appearance="primary"
+                onClick={handleSubmit}
+                style={{ marginLeft: 425, marginTop: 10 }}
+            >
+                Postar
+            </Button>
+        </>
+    );
+
     return (
         <div className="format">
-            {isInstituicao && (
-                <>
-                    <p className="post-title">Publicar Nova Postagem:</p>
-                    <Input
-                        as="textarea"
-                        value={mensagem}
-                        onChange={(value) => setMensagem(value)}
-                        className="formPostagem"
-                        rows={3}
-                        style={{ width: 400, marginLeft: 120 }}
-                        placeholder="Insira a mensagem..."
-                    />
-                    <Button
-                        appearance="primary"
-                        onClick={handleSubmit}
-                        style={{ marginLeft: 425, marginTop: 10 }}
-                    >
-                        Postar
-                    </Button>
-                </>
-            )}
+            {isInstituicao && renderInstituicaoForm()}
             <div className="posts">{renderPosts()}</div>
         </div>
     );

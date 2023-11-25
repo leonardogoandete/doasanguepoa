@@ -5,55 +5,34 @@ import HomeIcon from '@rsuite/icons/legacy/Home';
 import CalendarIcon from '@rsuite/icons/Calendar';
 import ExitIcon from '@rsuite/icons/Exit';
 import Logout from '../../components/Lougout/Logout';
-import './menu.css'
-
+import './menu.css';
 
 const Menu = () => {
-    const role = validaRole()
+    const role = validaRole();
 
-    if(role === 'INSTITUICAO'){
-        return (
+    console.log(role);
 
-            <>
+    return (
+        <>
             <Navbar>
-            <Navbar.Brand href="#">DoaSangue</Navbar.Brand>
-            <Nav >
-                <Nav.Item href="/home" icon={<HomeIcon />}>Inicio</Nav.Item>
-                <Nav.Item href="/minhas-postagens" icon={<HomeIcon />}>Minhas postagens</Nav.Item>
-            </Nav>
-            <Nav pullRight>
-                <Nav.Item icon={<ExitIcon />} onClick={Logout}>Sair</Nav.Item>
-            </Nav>
+                <Navbar.Brand href="#">DoaSangue</Navbar.Brand>
+                <Nav>
+                    {role === 'INSTITUICAO' && (
+                        <>
+                            <Nav.Item href="/home" icon={<HomeIcon />}>Inicio</Nav.Item>
+                            <Nav.Item href="/minhas-postagens" icon={<HomeIcon />}>Minhas postagens</Nav.Item>
+                        </>
+                    )}
+                    {role === 'USUARIO' && (
+                        <Nav.Item href="/agendamento" icon={<CalendarIcon />}>Agendamento</Nav.Item>
+                    )}
+                </Nav>
+                <Nav pullRight>
+                    <Nav.Item icon={<ExitIcon />} onClick={Logout}>Sair</Nav.Item>
+                </Nav>
             </Navbar>
-            </>
-        );
-    }else if(role === 'USUARIO'){
-        return (
-            <>
-            <Navbar>
-            <Navbar.Brand href="#">DoaSangue</Navbar.Brand>
-            <Nav >
-                <Nav.Item href="/home" icon={<HomeIcon />}>Inicio</Nav.Item>
-                <Nav.Item href="/agendamento" icon={<CalendarIcon/>}>Agendamento</Nav.Item>
-            </Nav>
-            <Nav pullRight>
-                <Nav.Item icon={<ExitIcon />} onClick={Logout}>Sair</Nav.Item>
-            </Nav>
-            </Navbar>
-            </>
-        );
-    }else{
-        return (
-          <>
-              <Navbar>
-                  <Navbar.Brand href="#">DoaSangue</Navbar.Brand>
-                  <Nav pullRight>
-                      <Nav.Item icon={<ExitIcon />} onClick={Logout}>Sair</Nav.Item>
-                  </Nav>
-              </Navbar>
-          </>
-        );
-    }
+        </>
+    );
 };
 
 export default Menu;
