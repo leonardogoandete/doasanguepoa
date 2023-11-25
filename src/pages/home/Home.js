@@ -18,7 +18,7 @@ const Home = () => {
     const [post, setPost] = useState([]);
     const [mensagem, setMensagem] = useState('');
     const [error, setError] = useState(null);
-    console.log(post)
+
     useEffect(() => {
         const fetchPostagens = async () => {
             try {
