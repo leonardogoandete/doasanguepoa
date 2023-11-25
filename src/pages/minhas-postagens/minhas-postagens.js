@@ -47,7 +47,7 @@ const MinhasPostagens = () => {
                     <p className="title">Minhas Postagens</p>
                     <div className="posts">
                         {error && <p>Ocorreu um erro ao obter postagens. Por favor, tente novamente mais tarde.</p>}
-                        {!error && post.length === 0 && <p>Nenhuma postagem disponível</p>}
+                        {!error && post.length === 0 && <p>Você não possui postagens cadastradas</p>}
                         {post.length > 0 && (
                             <>
                                 <h2 className="post-title">{post[0].titulo}</h2>
