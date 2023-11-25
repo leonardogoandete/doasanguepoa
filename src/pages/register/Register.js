@@ -5,7 +5,6 @@ import * as yup from 'yup'
 import './Register.css'
 import { history } from '../../history'
 import axios from "axios";
-// require('dotenv').config();
 
 
 

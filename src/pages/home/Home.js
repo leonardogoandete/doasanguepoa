@@ -10,7 +10,6 @@ import {
 } from 'react-share';
 import './Home.css';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
 import { validaRole } from "../../config/verificaRole";
 
 const Home = () => {
@@ -19,8 +18,7 @@ const Home = () => {
     const [post, setPost] = useState([]);
     const [mensagem, setMensagem] = useState('');
     const [error, setError] = useState(null);
-    const location = useLocation();
-
+    console.log(post)
     useEffect(() => {
         const fetchPostagens = async () => {
             try {
@@ -38,16 +36,6 @@ const Home = () => {
     }, []);
 
     const isInstituicao = role === 'INSTITUICAO';
-    const isMinhasPostagensPage = location.pathname === '/minhas-postagens';
-
-    const handleEditPost = (postId) => {
-        // Lógica para edição de postagem
-    };
-
-    const handleDeletePost = async (postId) => {
-        // Lógica para exclusão de postagem
-    };
-
     const handleSubmit = async () => {
         try {
             const token = localStorage.getItem('u');
@@ -88,7 +76,7 @@ const Home = () => {
                         <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=auhs" alt="icone do perfil" />
                     </IconContext.Provider>
                 </h4>
-                <h3>{post.titulo}</h3>
+                <h6>{post.cnpj}</h6>
                 <p className="post-body">{post.mensagem}</p>
                 <br /><br />
                 <WhatsappShareButton
@@ -108,12 +96,6 @@ const Home = () => {
                     <TwitterIcon size={32} round />
                 </TwitterShareButton>
                 <hr />
-                {isInstituicao && isMinhasPostagensPage && (
-                    <>
-                        <Button onClick={() => handleEditPost(post.id)}>Editar</Button>
-                        <Button onClick={() => handleDeletePost(post.id)}>Excluir</Button>
-                    </>
-                )}
             </div>
         ));
     };

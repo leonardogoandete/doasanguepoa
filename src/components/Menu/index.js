@@ -10,16 +10,14 @@ import './menu.css';
 const Menu = () => {
     const role = validaRole();
 
-    console.log(role);
-
     return (
         <>
             <Navbar>
                 <Navbar.Brand href="#">DoaSangue</Navbar.Brand>
                 <Nav>
+                    <Nav.Item href="/home" icon={<HomeIcon />}>Inicio</Nav.Item>
                     {role === 'INSTITUICAO' && (
                         <>
-                            <Nav.Item href="/home" icon={<HomeIcon />}>Inicio</Nav.Item>
                             <Nav.Item href="/minhas-postagens" icon={<HomeIcon />}>Minhas postagens</Nav.Item>
                         </>
                     )}

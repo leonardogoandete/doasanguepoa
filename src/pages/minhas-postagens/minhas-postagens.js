@@ -35,6 +35,7 @@ const MinhasPostagens = () => {
             { headers: { Authorization: `Bearer ${localStorage.getItem('u')}` } }
         ).then(() => {
             alert("Postagem excluída");
+            fetchPostagens();
         });
         console.log(`Excluir postagem ${postId}`);
     };
@@ -57,7 +58,7 @@ const MinhasPostagens = () => {
                                                 <img src='https://api.dicebear.com/7.x/adventurer/svg?seed=auhs' alt='icone do perfil' />
                                             </IconContext.Provider>
                                         </h4>
-                                        <h3>{post.nomeInstituicao}</h3>
+                                        <h5>{post.cnpj}</h5>
                                         <p className="post-body">{post.mensagem}</p>
                                         <br /><br />
                                         <div className="post-buttons">
