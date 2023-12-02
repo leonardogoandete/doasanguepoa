@@ -70,6 +70,9 @@ jobs:
           
       - name: Checkout DoaSanguePoa
         uses: actions/checkout@v4.1.1
+        with:
+          repository: leonardogoandete/doasanguepoa
+          path: doasanguepoa
         
       - name: Run DoaSanguePoa
         run: |
