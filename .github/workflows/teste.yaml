@@ -26,11 +26,8 @@ jobs:
       - name: Checkout postagens
         uses: actions/checkout@v4.1.1
         with:
-          fetch-depth: 0
           repository: leogoandete/postagens
-          path: postagens
-          tag: v1.1.0
-          
+          path: postagens          
 
       - name: Run Postagens
         run: |
