@@ -48,7 +48,13 @@ const Register = () => {
             <div className="registrar">
                 <p>Preencha os dados abaixo para cadastro!</p>
                 <Formik
-                    initialValues={{}}
+                    initialValues={{
+                        nome: '',
+                        endereco: '',
+                        documento: '',
+                        email: '',
+                        senha: ''
+                    }}
                     onSubmit={handleSubmit}
                     validationSchema={validations}
                 >
