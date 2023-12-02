@@ -64,11 +64,21 @@ jobs:
         run: |
           sleep 20
 
-      - name: Run Cypress
+      - name: Run DoaSanguePoa
         run: |
           cd doasanguepoa
           npm install
-          npx cypress run
-          cd ../..
-
-
+          npm start &
+          cd ..
+      
+      - name: Run Cypress chrome
+        run: |
+          cd doasanguepoa
+          npx cypress run --browser chrome --spec "cypress/e2e/teste-instituicao.cy.js"
+          cd ..
+          
+      - name: Run Cypress firefox
+        run: |
+          cd doasanguepoa
+          npx cypress run --browser firefox --spec "cypress/e2e/teste-instituicao.cy.js"
+          cd ..
