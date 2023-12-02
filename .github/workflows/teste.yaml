@@ -59,20 +59,20 @@ jobs:
           cd service_cadastrar
           ./mvnw compile quarkus:dev &
           cd ..
-
-      - name: wait for services to start
-        run: |
-          sleep 20
-          
-      - name: Lista files
-        run: |
-          ls -la
           
       - name: Checkout DoaSanguePoa
         uses: actions/checkout@v4.1.1
         with:
           repository: leonardogoandete/doasanguepoa
           path: doasanguepoa
+          
+      - name: wait for services to start
+        run: |
+          sleep 20
+          
+      - name: Listar files
+        run: |
+          ls -la
         
       - name: Run DoaSanguePoa
         run: |
