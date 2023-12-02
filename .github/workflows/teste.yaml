@@ -26,7 +26,7 @@ jobs:
       - name: Checkout postagens
         uses: actions/checkout@v4.1.1
         with:
-          repository: leogoandete/postagens
+          repository: leonardogoandete/postagens
           path: postagens
           ref: 'v1.1.0'
 
