@@ -28,7 +28,6 @@ jobs:
         with:
           repository: leogoandete/postagens
           path: postagens
-          ref: 'v1.1.0'
 
       - name: Run Postagens
         run: |
