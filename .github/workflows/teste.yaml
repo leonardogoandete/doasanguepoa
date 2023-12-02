@@ -63,6 +63,10 @@ jobs:
       - name: wait for services to start
         run: |
           sleep 20
+          
+      - name: Lista files
+        run: |
+          ls -la
 
       - name: Run DoaSanguePoa
         run: |
