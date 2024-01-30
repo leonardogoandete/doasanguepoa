@@ -1,11 +1,14 @@
-FROM node:18-alpine3.18
+#Stage 1
+FROM node:18-alpine as builder
+WORKDIR /app
+COPY package*.json .
+RUN npm install
+COPY . .
+RUN npm run build
 
-ENV HOME=/home/app
-WORKDIR $HOME
-COPY . /home/app/
-COPY package.json ./
-RUN npm install --silent
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
+#Stage 2
+FROM nginx:stable-alpine3.17-slim
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /app/build .
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
