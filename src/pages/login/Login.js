@@ -21,7 +21,7 @@ const Login = () => {
             'Content-Type': 'application/json'
         };
 
-        axios.post(process.env.REACT_APP_URL_API_LOGIN+'/auth/login', jsonData, { headers: headers })
+        axios.post('/auth/login', jsonData, { headers: headers })
             .then(resp => {
                 const { data } = resp
                 if (data && resp.status === 200) {

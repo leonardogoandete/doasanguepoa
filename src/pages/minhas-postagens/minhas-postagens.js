@@ -12,7 +12,7 @@ const MinhasPostagens = () => {
     const fetchPostagens = async () => {
         try {
             const response = await axios.get(
-                `${process.env.REACT_APP_URL_API_POSTAGENS}/postagens/instituicao`,
+                "/postagens/instituicao",
                 { headers: { Authorization: `Bearer ${localStorage.getItem('u')}` } }
             );
             setPost(response.data);
@@ -31,7 +31,7 @@ const MinhasPostagens = () => {
 
     const handleDelete = (postId) => {
         axios.delete(
-            `${process.env.REACT_APP_URL_API_POSTAGENS}/postagens/${postId}`,
+            "/postagens/${postId}",
             { headers: { Authorization: `Bearer ${localStorage.getItem('u')}` } }
         ).then(() => {
             alert("Postagem excluída");

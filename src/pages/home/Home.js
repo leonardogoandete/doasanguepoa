@@ -23,7 +23,7 @@ const Home = () => {
         const fetchPostagens = async () => {
             try {
                 const response = await axios.get(
-                    `${process.env.REACT_APP_URL_API_POSTAGENS}/postagens`,
+                    "/postagens",
                     { headers: { Authorization: `Bearer ${localStorage.getItem('u')}` } }
                 );
                 setPost(response.data);
@@ -42,7 +42,7 @@ const Home = () => {
             const decoded = jwt_decode(token);
 
             await axios.post(
-                `${process.env.REACT_APP_URL_API_POSTAGENS}/postagens`,
+                "/postagens",
                 { mensagem, cnpj: decoded['upn'] },
                 { headers: { Authorization: `Bearer ${localStorage.getItem('u')}` } }
             );
@@ -51,7 +51,7 @@ const Home = () => {
             setMensagem('');
 
             const updatedPost = await axios.get(
-                `${process.env.REACT_APP_URL_API_POSTAGENS}/postagens`,
+                "/postagens",
                 { headers: { Authorization: `Bearer ${localStorage.getItem('u')}` } }
             );
             setPost(updatedPost.data);

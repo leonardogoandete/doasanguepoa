@@ -16,7 +16,7 @@ const Register = () => {
                     : '/registrar/instituicao';
 
             const response = await axios.post(
-                process.env.REACT_APP_URL_API_CADASTRO + endpoint,
+                endpoint,
                 values
             );
 
