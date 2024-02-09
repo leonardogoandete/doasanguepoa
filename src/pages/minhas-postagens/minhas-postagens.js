@@ -31,7 +31,7 @@ const MinhasPostagens = () => {
 
     const handleDelete = (postId) => {
         axios.delete(
-            "/postagens/${postId}",
+            `/postagens/${postId}`,
             { headers: { Authorization: `Bearer ${localStorage.getItem('u')}` } }
         ).then(() => {
             alert("Postagem excluída");
